@@ -1,3 +1,6 @@
+" set leader
+let mapleader="\<Space>"
+
 " security
 set modelines=0
 
@@ -48,7 +51,22 @@ set termguicolors
 set scrolloff=6
 
 " completeopt - TODO
+" set completeopt=menuone,noinsert,noselect
 
 " give more space for displaying messages
 set cmdheight=2
+
+" add extra columns
+set colorcolumn=80
+set signcolumn=yes
+
+" netrw
+let g:netrw_liststyle=3
+let g:netrw_banner=0
+"let g:netrw_winsize = 25
+"let g:netrw_browse_split = 2
+
+" short delay
+set updatetime=50
+
 
