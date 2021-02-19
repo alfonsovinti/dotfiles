@@ -3,6 +3,9 @@ inoremap <F1> <Esc>
 nnoremap <F1> <Esc>
 vnoremap <F1> <Esc>
 
+" disable paste on middle click
+inoremap <MiddleMouse> <Nop>
+
 " escaping
 inoremap kj <Esc>
 xnoremap kj <Esc>
@@ -26,10 +29,13 @@ inoremap <C-l> <C-o>l
 inoremap <C-j> <C-o>j
 inoremap <C-k> <C-o>k
 
-" search mappings: These will make it so that going to the next one in a
-" search will center on the line it's found in.
+" center display line after searches
 nnoremap n nzzzv
 nnoremap N Nzzzv
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#z
 
 " clear search
 noremap <silent> <Leader>c :let @/ = ""<CR>
@@ -49,8 +55,6 @@ noremap <silent> <Leader>Tw :set wrap! wrap?<CR> " toggle line wrap
 
 " tabs
 nnoremap <silent> <Leader>t :tabnew<CR>
-nnoremap <silent> <Leader>tn gt
-nnoremap <silent> <Leader>tp gT
 " switching tabs quickly
 noremap <Leader>1 1gt
 noremap <Leader>2 2gt
@@ -69,25 +73,24 @@ nnoremap <Leader>bn :bnext<CR>
 nnoremap <Leader>bp :bprev<CR>
 
 " widows
-nnoremap <Leader>wn  <C-w>w
-nnoremap <Leader>wp  <C-w>W
-nnoremap <Leader>h  <C-w>h
-nnoremap <Leader>j  <C-w>j
-nnoremap <Leader>k  <C-w>k
-nnoremap <Leader>l  <C-w>l
-nnoremap <Leader>+  <C-w>+
-nnoremap <Leader>-  <C-w>-
-nnoremap <Leader>=  <C-w>=
+let g:tmux_navigator_no_mappings = 1
+nnoremap <silent> <M-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <M-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <M-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <M-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <M-\> :TmuxNavigatePrevious<cr>
+"nnoremap <Leader>wn  <C-w>w
+"nnoremap <Leader>wp  <C-w>W
 " split current window horizzontally
-nnoremap <Leader>w_  <C-w>s
+"nnoremap <Leader>w_  <C-w>s
 " split current window vertically
-nnoremap <Leader>w\| <C-w>v
-nnoremap <Leader>H  <C-w>H
-nnoremap <Leader>J  <C-w>J
-nnoremap <Leader>K  <C-w>K
-nnoremap <Leader>L  <C-w>L
-nnoremap <Leader>wr  <C-w>r
-nnoremap <Leader>wx  <C-w>x
+"nnoremap <Leader>w\| <C-w>v
+"nnoremap <Leader>H  <C-w>H
+"nnoremap <Leader>J  <C-w>J
+"nnoremap <Leader>K  <C-w>K
+"nnoremap <Leader>L  <C-w>L
+"nnoremap <Leader>wr  <C-w>r
+"nnoremap <Leader>wx  <C-w>x
 
 " map j to gj and k to gk, so line navigation ignores line wrap
 " ...but only if the count is undefined (otherwise, things like 4j

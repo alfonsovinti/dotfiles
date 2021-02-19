@@ -32,4 +32,5 @@ call plug#begin(s:bundle_dir)
 " apparance and themes
 Plug 'arcticicestudio/nord-vim'
 
+Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
