@@ -69,8 +69,10 @@ noremap <Leader>0 :tablast<CR>
 
 " buffers
 nnoremap <Leader>ba <C-^>
-nnoremap <Leader>bn :bnext<CR>
-nnoremap <Leader>bp :bprev<CR>
+nnoremap <Leader>bg :ls<CR>:b
+nnoremap <Leader>bl :ls<CR>
+nnoremap gb :bnext<CR>
+nnoremap gB :bprev<CR>
 
 " widows
 let g:tmux_navigator_no_mappings = 1
@@ -79,25 +81,27 @@ nnoremap <silent> <M-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <M-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <M-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <M-\> :TmuxNavigatePrevious<cr>
-"nnoremap <Leader>wn  <C-w>w
-"nnoremap <Leader>wp  <C-w>W
+" mooving windows
+nnoremap <silent> <M-H>  <C-w>H
+nnoremap <silent> <M-J>  <C-w>J
+nnoremap <silent> <M-K>  <C-w>K
+nnoremap <silent> <M-L>  <C-w>L
+" resize windows
+nnoremap <silent> <M-+>  <C-w>+
+nnoremap <silent> <M-->  <C-w>-
+nnoremap <silent> <M-<>  <C-w><
+nnoremap <silent> <M->>  <C-w>>
 " split current window horizzontally
-"nnoremap <Leader>w_  <C-w>s
+nnoremap <silent> <M-_>  <C-w>s
 " split current window vertically
-"nnoremap <Leader>w\| <C-w>v
-"nnoremap <Leader>H  <C-w>H
-"nnoremap <Leader>J  <C-w>J
-"nnoremap <Leader>K  <C-w>K
-"nnoremap <Leader>L  <C-w>L
-"nnoremap <Leader>wr  <C-w>r
-"nnoremap <Leader>wx  <C-w>x
+nnoremap <silent> <M-\|> <C-w>v
+" full screen
+let g:maximizer_default_mapping_key = '<M-f>'
 
 " map j to gj and k to gk, so line navigation ignores line wrap
 " ...but only if the count is undefined (otherwise, things like 4j
 " break if wrapped LINES are present)
-"nnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
-"nnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
-"xnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
-"xnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
-
-
+nnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
+nnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
+xnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
+xnoremap <expr> k (v:count == 0 ? 'gk' : 'k')

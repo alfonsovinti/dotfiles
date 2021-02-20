@@ -31,6 +31,6 @@ call plug#begin(s:bundle_dir)
 
 " apparance and themes
 Plug 'arcticicestudio/nord-vim'
-
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'szw/vim-maximizer'
 call plug#end()

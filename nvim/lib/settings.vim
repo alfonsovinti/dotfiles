@@ -69,4 +69,3 @@ let g:netrw_banner=0
 " short delay
 set updatetime=50
 
-
