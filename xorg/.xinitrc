@@ -35,4 +35,7 @@ fi
 # TODO
 #udiskie &
 
+#export DESKTOP_SESSION=plasma
+#exec startplasma-x11
+
 exec i3
