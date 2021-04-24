@@ -1,25 +1,55 @@
 # required packages
 packages=(
+    # Termina & shells
+    "xterm"
     "alacritty"
-    "bat"
+    "zsh"
+    #zsh-completions
+    "fish"
+    "tmux"
+    #wpa_supplicant
+    #network-manager-applet
+    #networkmanager
+    #kvantum-qt5
+    #openssh
+    # DE
+    #"xorg"
+    "pcmanfm-gtk3"
+    #"xarchiver"
+    #"gvfs" # (optional) for trash support, mounting with udisks and remote filesystems
+    "lxappearance-gtk3"
+    #"lxinput-gtk3"
+    #"lxrandr-gtk3"
+    "arandr"
+    "lxsession-gtk3"
+    "picom"          # composer
+    # Utility
+    "reflector"      # repo manager
     "dialog"
-    "feh"
-    "firefox"
     "git"
     "htop"
-    "i3"
-    "i3blocks"
+    "bat"            # cat
+    "exa"
     "i3lock"
-    "i3status"
-    "lxappearance"
-    "nvim"
+    "feh"            # wall manager
+    "xdg-user-dirs"
+    "python"
+    "python-pip"
+    "xsel"           # getting and setting the contents of the X selection
+    # Editor
+    "emacs"
+    "python-pynvim"  # requirede by neovim
+    # File manager
+    "ranger"
     "nnn"
-    "picom"
+    "dmenu"
     "rofi"
     "sl"
-    "tmux"
-    "xsel"
-    "zsh"
+    "firefox"
+)
+
+aurp=(
+    "neovim-git"
 )
 
 for package in "${packages[@]}"; do
@@ -30,3 +60,6 @@ for package in "${packages[@]}"; do
         echo "$package [OK]"
     fi
 done
+
+
+
