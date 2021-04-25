@@ -1,3 +1,5 @@
+# history ignore command
+export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
 # history filepath
 export HISTFILE="$XDG_DATA_HOME/zsh/history"
 # maximum events for internal history

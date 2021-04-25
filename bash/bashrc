@@ -1,5 +1,11 @@
+#
+# ~/.bashrc
+
 # getting proper colors
 export TERM="xterm-256color" 
+
+# no duplicate entries
+export HISTCONTROL=ignoredups:erasedups           
 
 # dotfiles
 export DOTFILES="$HOME/.dotfiles"
@@ -36,21 +42,21 @@ for p in "${paths[@]}"; do
 done
 
 # set vi mode
-bindkey -v
+set -o vi
+bind -m vi-command 'Control-l: clear-screen'
+bind -m vi-insert 'Control-l: clear-screen'
 
-# load configs
-configs=(
-  "autocompletion"
-  "history"
-  "keybindings"
-  "aliases"
-)
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
 
-for config in "${configs[@]}"; do
-  if [[ -f "$DOTFILES/zsh/lib/$config.zsh" ]]; then
-    source "$DOTFILES/zsh/lib/$config.zsh"
-  fi
-done
+# config
+shopt -s autocd # change to named directory
+shopt -s cdspell # autocorrects cd misspellings
+shopt -s cmdhist # save multi-line commands in history as single line
+shopt -s dotglob
+shopt -s histappend # do not overwrite history
+shopt -s expand_aliases # expand aliases
+shopt -s checkwinsize # checks term size when bash regains control
 
 # setting the starship prompt
-eval "$(starship init zsh)"
+eval "$(starship init bash)"
