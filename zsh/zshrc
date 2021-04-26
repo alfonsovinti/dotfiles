@@ -38,12 +38,14 @@ done
 # set vi mode
 bindkey -v
 
+# load aliases
+source "$DOTFILES/misc/aliases"
+
 # load configs
 configs=(
   "autocompletion"
   "history"
   "keybindings"
-  "aliases"
 )
 
 for config in "${configs[@]}"; do
