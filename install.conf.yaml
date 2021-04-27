@@ -5,7 +5,13 @@
 - clean: ['~']
 
 - link:
-    ~/.zshrc: zsh/.zshrc
+    ~/.config/alacritty/alacritty.yml: alacritty/alacritty.yml
+    ~/.bash_logout: bash/bash_logout
+    ~/.bash_profile: bash/bash_profile
+    ~/.bashrc: bash/bashrc
+    ~/.gitconfig: git/gitconfig
+    ~/.zshrc: zsh/zshrc
+    ~/.zprofile: zsh/zprofile
 
 - create:
     - ~/downloads
