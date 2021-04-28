@@ -16,11 +16,11 @@ return require('packer').startup(function()
   use { 'neovim/nvim-lspconfig' }
   use { 'nvim-lua/completion-nvim' }
 
-  -- Lua development
-  use { 'tjdevries/nlua.nvim' }
+  -- Treesitter
+  use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
 
   -- Vim dispatch
-  use { 'tpope/vim-dispatch' }
+  -- use { 'tpope/vim-dispatch' }
 
   -- Fugitive for Git
   -- use { 'tpope/vim-fugitive' }
@@ -34,5 +34,10 @@ return require('packer').startup(function()
 
   -- file explorer
   use { 'kyazdani42/nvim-tree.lua' }
+  -- use ranger in neovim
+  use { 'kevinhwang91/rnvimr' }
+
+  -- Language support
+  use { 'dag/vim-fish' }
 
 end)

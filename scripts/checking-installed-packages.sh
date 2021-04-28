@@ -58,6 +58,7 @@ packages=(
     "rofi"
     "sl"
     "firefox"
+    "nodejs"
 )
 
 aurp=(

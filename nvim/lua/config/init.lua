@@ -28,3 +28,14 @@ utils.map('n', '<Leader>gs', '<cmd>Gstatus<CR>') -- Git status
 vim.g.nvim_tree_ignore  = {'.git', 'node_modules', '.cache'}
 vim.g.nvim_tree_tab_open = 0
 utils.map('n', '<Leader>e', '<cmd>NvimTreeToggle<CR>')
+
+
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ignore_install = { "cpp", "dart", "erlang", "fennel", "kotlin", "ledger" }, -- List of parsers to ignore installing
+  highlight = {
+    enable = true, -- false will disable the whole extension
+  },
+  --indent = {enable = true},
+  --autotag = {enable = true},
+}
