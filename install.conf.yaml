@@ -6,10 +6,18 @@
 
 - link:
     ~/.config/alacritty/alacritty.yml: alacritty/alacritty.yml
+    ~/.config/starship.toml: misc/starship.toml
+    ~/.config/user-dirs.dirs: misc/user-dirs.dirs
+    ~/.config/qtile/autostart.sh: qtile/autostart.sh
+    ~/.config/qtile/config.py: qtile/config.py
+    ~/.config/rofi/nord.rasi: rofi/nord.rasi
     ~/.bash_logout: bash/bash_logout
     ~/.bash_profile: bash/bash_profile
     ~/.bashrc: bash/bashrc
     ~/.gitconfig: git/gitconfig
+    ~/.tmux.conf: tmux/tmux.conf
+    ~/.xinitrc: xorg/xinitrc
+    ~/.Xresources: xorg/Xresources
     ~/.zshrc: zsh/zshrc
     ~/.zprofile: zsh/zprofile
 
