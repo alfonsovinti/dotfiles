@@ -1,5 +1,15 @@
 #!/usr/bin/env bash
 
+#       __  ___      ___
+#      /""\|"  \    /"  |
+#     /    \\   \  //  /    Alfonso Vinti (alfonsovinti)
+#    /' /\  \\\  \/. ./     https://www.alfonsovinti.it
+#   //  __'  \\.    //      https://github.com/alfonsovinti
+#  /   /  \\  \\\   /
+# (___/    \___)\__/
+#
+# check-installed-packages.sh
+
 # required packages
 packages=(
     # Termina & shells
@@ -91,4 +101,3 @@ else
     printf "\nPackages not installed:\n%s\n\n" "${toInstallList}";
     sudo pacman -S "${toInstall[@]}";
 fi;
-
