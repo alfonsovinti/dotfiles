@@ -53,7 +53,7 @@ utils.opt('b', 'infercase', true)
 cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'
 
 utils.augroup({
-    { 'BufWritePre', '*', '%s/\s\+$//e' },
+    { 'BufWritePre', '*', '%s/\\s\\+$//e' },
 }, 'TRIM_WHITESPACE')
 
 cmd('au BufNewFile,BufRead * if &ft == "" | set ft=text | endif')

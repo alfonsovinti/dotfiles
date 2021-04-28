@@ -1,6 +1,7 @@
-local utils = { }
 
+local cmd = vim.cmd
 local scopes = {o = vim.o, b = vim.bo, w = vim.wo}
+local utils = { }
 
 function utils.opt(scope, key, value)
     scopes[scope][key] = value
@@ -13,7 +14,7 @@ function utils.map(mode, lhs, rhs, opts)
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
-function augroup(autocmds, name)
+function utils.augroup(autocmds, name)
     cmd('augroup ' .. name)
     cmd('autocmd!')
     for _, autocmd in ipairs(autocmds) do
