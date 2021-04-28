@@ -4,7 +4,7 @@ add_newline = true
 
 [character]
 disabled = false
-format = '[💀](bold purple)$symbol '
+format = '[ﮊ](bold purple) $symbol '
 success_symbol = '[❯](bold green)'
 error_symbol = '[❯](bold red)'
 vicmd_symbol = '[❮](bold green)'
@@ -34,7 +34,7 @@ format = '[$path]($style)[$read_only]($read_only_style) '
 style = 'cyan bold'
 read_only = '🔒'
 read_only_style = 'yellow'
-truncation_symbol = '…'
+truncation_symbol = ''
 home_symbol = '~'
 
 [docker_context]
@@ -213,7 +213,7 @@ detect_files = ['Cargo.toml']
 detect_folders = []
 
 [shell]
-disabled = false
+disabled = true
 format = '$indicator '
 bash_indicator = 'bsh'
 fish_indicator = 'fsh'
