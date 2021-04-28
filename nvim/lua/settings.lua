@@ -22,7 +22,7 @@ utils.opt('o', 'splitbelow', true)
 utils.opt('o', 'splitright', true)
 utils.opt('o', 'clipboard', 'unnamed,unnamedplus')
 utils.opt('o', 'cmdheight', 2)          -- give more space for displaying messages
--- utils.opt('o', 'wildmode', 'list:longest')
+--utils.opt('o', 'wildmode', 'list:longest')
 -- TODO utils.opt('o', 'completeopt', 'menuone,noinsert,noselect')
 -- TODO utils.opt('o', 'updatetime', 50) -- short delay
 
@@ -44,8 +44,11 @@ utils.opt('b', 'smartindent', true)     -- do indenting when starting a new line
 utils.opt('b', 'autoindent', true)      -- copy indent from current line
 utils.opt('b', 'infercase', true)
 
--- g.netrw_liststyle = 3
--- g.netrw_banner = 0
+-- netrw
+--g.netrw_liststyle = 3
+--g.netrw_banner = 0
+--g.netrw_winsize = 25
+--g.netrw_browse_split = 2
 
 cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'
 

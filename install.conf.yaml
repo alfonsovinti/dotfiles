@@ -1,16 +1,23 @@
 - defaults:
     link:
       relink: true
+      create: true
 
-- clean: ['~']
+- clean:
+    ~/:
+      force: true
+    ~/.config:
+      recursive: true
 
 - link:
     ~/.config/alacritty/alacritty.yml: alacritty/alacritty.yml
-    ~/.config/starship.toml: misc/starship.toml
-    ~/.config/user-dirs.dirs: misc/user-dirs.dirs
+    ~/.config/nvim/lua: nvim/lua
+    ~/.config/nvim/init.lua: nvim/init.lua
     ~/.config/qtile/autostart.sh: qtile/autostart.sh
     ~/.config/qtile/config.py: qtile/config.py
     ~/.config/rofi/nord.rasi: rofi/nord.rasi
+    ~/.config/starship.toml: misc/starship.toml
+    ~/.config/user-dirs.dirs: misc/user-dirs.dirs
     ~/.bash_logout: bash/bash_logout
     ~/.bash_profile: bash/bash_profile
     ~/.bashrc: bash/bashrc
@@ -20,9 +27,6 @@
     ~/.Xresources: xorg/Xresources
     ~/.zshrc: zsh/zshrc
     ~/.zprofile: zsh/zprofile
-
-- create:
-    - ~/downloads
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]

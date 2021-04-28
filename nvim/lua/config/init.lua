@@ -1,9 +1,16 @@
 local utils = require('utils')
 local cmd = vim.cmd
 
+-- This is only necessary if you use "set termguicolors".
+--cmd 'let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"'
+--cmd 'let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"'
+
 -- colorscheme
 utils.opt('o', 'termguicolors', true)   -- enables 24-bit color
 cmd 'colorscheme nord'
+
+-- set trasparent bg
+--cmd 'highlight Normal guibg=none'
 
 -- completion
 utils.opt('o', 'completeopt', 'menuone,noinsert,noselect')
