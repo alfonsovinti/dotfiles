@@ -59,6 +59,7 @@ packages=(
     "sl"
     "firefox"
     "nodejs"
+    "npm"
 )
 
 aurp=(
