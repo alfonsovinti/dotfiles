@@ -12,7 +12,7 @@ vicmd_symbol = '[❮](bold green)'
 [cmake]
 disabled = false
 format = 'via [$symbol($version )]($style)'
-symbol = '△ '
+symbol = '喝'
 style = 'bold blue'
 
 [cmd_duration]
@@ -32,14 +32,14 @@ fish_style_pwd_dir_length = 0
 use_logical_path = true
 format = '[$path]($style)[$read_only]($read_only_style) '
 style = 'cyan bold'
-read_only = '🔒'
+read_only = ' '
 read_only_style = 'yellow'
 truncation_symbol = ''
 home_symbol = '~'
 
 [docker_context]
 disabled = false
-symbol = '🐳 '
+symbol = ' '
 style = 'blue bold'
 format = 'via [$symbol$context]($style) '
 
@@ -52,7 +52,7 @@ format = 'with [$env_value]($style) '
 [git_branch]
 disabled = false
 format = 'on [$symbol$branch]($style)(:[$remote]($style)) '
-symbol = ' '
+symbol = ' '
 style = 'bold purple'
 truncation_length = 9223372036854775807
 truncation_symbol = '…'
@@ -65,7 +65,7 @@ commit_hash_length = 7
 format = '[\($hash$tag\)]($style) '
 style = 'green bold'
 only_detached = true
-tag_symbol = '🏷  '
+tag_symbol = ' '
 tag_disabled = true
 
 [git_state]
@@ -88,12 +88,12 @@ stashed = '\$'
 ahead = '⇡'
 behind = '⇣'
 diverged = '⇕'
-conflicted = '='
-deleted = '✘'
-renamed = '»'
-modified = '!'
-staged = '+'
-untracked = '?'
+conflicted = ''
+deleted = ''
+renamed = ''
+modified = ''
+staged = ''
+untracked = ''
 
 [hostname]
 disabled = false
@@ -112,7 +112,7 @@ style = 'bold blue'
 [lua]
 disabled = false
 format = 'via [$symbol($version )]($style)'
-symbol = '🌙 '
+symbol = ' '
 style = 'bold blue'
 lua_binary = 'lua'
 detect_extensions = ['lua']
@@ -124,7 +124,7 @@ disabled = true
 threshold = 75
 format = 'via $symbol[$ram( | $swap)]($style) '
 style = 'white bold dimmed'
-symbol = '🐏 '
+symbol = ''
 
 [nodejs]
 disabled = false
@@ -164,7 +164,7 @@ python_binary = [
 format = 'via [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 version_format = 'v${raw}'
 style = 'yellow bold'
-symbol = '🐍 '
+symbol = ' '
 detect_extensions = ['py']
 detect_files = [
     'requirements.txt',
@@ -179,7 +179,7 @@ detect_folders = []
 
 [php]
 disabled = false
-symbol = '🐘 '
+symbol = ' '
 style = '147 bold'
 format = 'via [$symbol($version )]($style)'
 detect_extensions = ['php']
@@ -193,7 +193,7 @@ detect_folders = []
 disabled = false
 format = 'via [$symbol($version )]($style)'
 version_format = 'v${raw}'
-symbol = '💎 '
+symbol = ' '
 style = 'bold red'
 detect_extensions = ['rb']
 detect_files = [
@@ -206,7 +206,7 @@ detect_folders = []
 disabled = false
 format = 'via [$symbol($version )]($style)'
 version_format = 'v${raw}'
-symbol = '🦀 '
+symbol = ' '
 style = 'bold red'
 detect_extensions = ['rs']
 detect_files = ['Cargo.toml']

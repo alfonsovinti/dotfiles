@@ -11,6 +11,7 @@
 
 - link:
     ~/.config/alacritty/alacritty.yml: alacritty/alacritty.yml
+    ~/.config/fish/config.fish: fish/config.fish
     ~/.config/nvim/lua: nvim/lua
     ~/.config/nvim/init.lua: nvim/init.lua
     ~/.config/qtile/autostart.sh: qtile/autostart.sh
@@ -18,6 +19,10 @@
     ~/.config/rofi/nord.rasi: rofi/nord.rasi
     ~/.config/starship.toml: misc/starship.toml
     ~/.config/user-dirs.dirs: misc/user-dirs.dirs
+    ~/.emacs.d/early-init.el: emacs/early-init.el
+    ~/.emacs.d/init.el: emacs/init.el
+    ~/.emacs.d/elisp: emacs/elisp
+    ~/.emacs.d/config/eshell/aliases: emacs/config/eshell/aliases
     ~/.bash_logout: bash/bash_logout
     ~/.bash_profile: bash/bash_profile
     ~/.bashrc: bash/bashrc
