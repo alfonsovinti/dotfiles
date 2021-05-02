@@ -1,31 +1,16 @@
-# Copyright (c) 2010 Aldo Cortesi
-# Copyright (c) 2010, 2014 dequis
-# Copyright (c) 2012 Randall Ma
-# Copyright (c) 2012-2014 Tycho Andersen
-# Copyright (c) 2012 Craig Barnes
-# Copyright (c) 2013 horsik
-# Copyright (c) 2013 Tao Sauvage
+#       __  ___      ___
+#      /""\|"  \    /"  |
+#     /    \\   \  //  /   Alfonso Vinti (alfonsovinti)
+#    /' /\  \\\  \/. ./    https://www.alfonsovinti.it
+#   //  __'  \\.    //     https://github.com/alfonsovinti
+#  /   /  \\  \\\   /
+# (___/    \___)\__/
 #
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in
-# all copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-# SOFTWARE.
+# qtile/config.py
 
 import os
 import subprocess
+import socket
 
 from typing import List  # noqa: F401
 
@@ -39,33 +24,62 @@ terminal = guess_terminal()
 
 keys = [
     # Switch between windows
-    Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
-    Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
-    Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
-    Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
-    Key([mod], "space", lazy.layout.next(),
+    Key([mod], "h",
+        lazy.layout.left(),
+        desc="Move focus to left"),
+    Key([mod], "l",
+        lazy.layout.right(),
+        desc="Move focus to right"),
+    Key([mod], "j",
+        lazy.layout.down(),
+        desc="Move focus down"),
+    Key([mod], "k",
+        lazy.layout.up(),
+        desc="Move focus up"),
+    Key([mod], "space",
+        lazy.layout.next(),
         desc="Move window focus to other window"),
 
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
-    Key([mod, "shift"], "h", lazy.layout.shuffle_left(),
+    Key([mod, "shift"], "h",
+        lazy.layout.shuffle_left(),
+        lazy.layout.section_left(),
         desc="Move window to the left"),
-    Key([mod, "shift"], "l", lazy.layout.shuffle_right(),
+    Key([mod, "shift"], "l",
+        lazy.layout.shuffle_right(),
+        lazy.layout.section_right(),
         desc="Move window to the right"),
-    Key([mod, "shift"], "j", lazy.layout.shuffle_down(),
+    Key([mod, "shift"], "j",
+        lazy.layout.shuffle_down(),
+        lazy.layout.section_down(),
         desc="Move window down"),
-    Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
+    Key([mod, "shift"], "k",
+        lazy.layout.shuffle_up(),
+        lazy.layout.section_up(),
+        desc="Move window up"),
 
     # Grow windows. If current window is on the edge of screen and direction
     # will be to screen edge - window would shrink.
-    Key([mod, "control"], "h", lazy.layout.grow_left(),
+    Key([mod, "control"], "h",
+        lazy.layout.grow_left(),
+        lazy.layout.shrink(),
+        lazy.layout.decrease_nmaster(),
         desc="Grow window to the left"),
-    Key([mod, "control"], "l", lazy.layout.grow_right(),
+    Key([mod, "control"], "l",
+        lazy.layout.grow_right(),
+        lazy.layout.grow(),
+        lazy.layout.increase_nmaster(),
         desc="Grow window to the right"),
-    Key([mod, "control"], "j", lazy.layout.grow_down(),
+    Key([mod, "control"], "j",
+        lazy.layout.grow_down(),
         desc="Grow window down"),
-    Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
-    Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
+    Key([mod, "control"], "k",
+        lazy.layout.grow_up(),
+        desc="Grow window up"),
+    Key([mod], "n",
+        lazy.layout.normalize(),
+        desc="Reset all window sizes"),
 
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
@@ -90,7 +104,7 @@ groups = [
     Group('dev'),
     Group('www'),
     Group('sys'),
-    Group('doc')
+    Group('doc'),
 ]
 
 for i, g in enumerate(groups, 1):
@@ -108,10 +122,18 @@ for i, g in enumerate(groups, 1):
             desc="Move focused window to group {}".format(g.name)),
     ])
 
+layout_theme = {
+    "border_width": 2,
+    "margin": 8,
+    "border_focus": "#b48ead",
+    "border_normal": "#434c5e"
+}
+
 layouts = [
-    layout.Columns(border_focus_stack='#d75f5f'),
-    layout.Max(),
-    # Try more layouts by unleashing below layouts.
+    layout.MonadTall(**layout_theme),
+    layout.Max(**layout_theme),
+    layout.Floating(**layout_theme),
+    # layout.Columns(border_focus_stack='#b48ead'),
     # layout.Stack(num_stacks=2),
     # layout.Bsp(),
     # layout.Matrix(),
@@ -124,10 +146,22 @@ layouts = [
     # layout.Zoomy(),
 ]
 
+colors = [["#2e3440", "#2e3440"], # panel background
+          ["#3b4252", "#434c5e"], # background for current screen tab
+          ["#d8dee9", "#d8dee9"], # font color for group names
+          ["#bf616a", "#bf616a"], # border line color for current tab
+          ["#b48ead", "#b48ead"], # border line color for 'other tabs' and color for 'odd widgets'
+          ["#5e81ac", "#5e81ac"], # color for the 'even widgets'
+          ["#b48ead", "#b48ead"], # window name
+          ["#4c566a", "#4c566a"]] # backbround for inactive screens
+
+prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
+
 widget_defaults = dict(
-    font='sans',
-    fontsize=12,
-    padding=3,
+    font='FiraCode Nerd Font',
+    fontsize=13,
+    padding=2,
+    background=colors[0]
 )
 extension_defaults = widget_defaults.copy()
 
@@ -135,9 +169,40 @@ screens = [
     Screen(
         top=bar.Bar(
             [
+                widget.Sep(
+                    linewidth = 0,
+                    padding = 8,
+                    foreground = colors[2],
+                    background = colors[0]
+                ),
                 widget.CurrentLayout(),
-                widget.GroupBox(),
-                widget.Prompt(),
+                widget.GroupBox(
+                    font = "FiraCode Nerd Font Bold",
+                    fontsize = 9,
+                    margin_y = 3,
+                    margin_x = 0,
+                    padding_y = 5,
+                    padding_x = 3,
+                    borderwidth = 3,
+                    active = colors[2],
+                    inactive = colors[7],
+                    rounded = False,
+                    highlight_color = colors[1],
+                    highlight_method = "line",
+                    this_current_screen_border = colors[6],
+                    this_screen_border = colors [4],
+                    other_current_screen_border = colors[6],
+                    other_screen_border = colors[4],
+                    foreground = colors[2],
+                    background = colors[0]
+                ),
+                widget.Prompt(
+                    prompt = prompt,
+                    font = "FiraCode Nerd Font",
+                    padding = 10,
+                    foreground = colors[3],
+                    background = colors[1]
+                ),
                 widget.WindowName(),
                 widget.Chord(
                     chords_colors={
@@ -145,10 +210,8 @@ screens = [
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                widget.TextBox("default config", name="default"),
-                widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
                 widget.Systray(),
-                widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
+                widget.Clock(format='%d/%m/%Y %a %H:%M'),
                 widget.QuickExit(),
             ],
             32,

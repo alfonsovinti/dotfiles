@@ -64,6 +64,7 @@ packages=(
 
 aurp=(
     "neovim-git"
+    "ueberzug"
 )
 
 _isInstalled() {

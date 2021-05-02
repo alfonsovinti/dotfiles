@@ -29,7 +29,6 @@ vim.g.nvim_tree_ignore  = {'.git', 'node_modules', '.cache'}
 vim.g.nvim_tree_tab_open = 0
 utils.map('n', '<Leader>e', '<cmd>NvimTreeToggle<CR>')
 
-
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   ignore_install = { "cpp", "dart", "erlang", "fennel", "kotlin", "ledger" }, -- List of parsers to ignore installing
@@ -39,3 +38,23 @@ require'nvim-treesitter.configs'.setup {
   --indent = {enable = true},
   --autotag = {enable = true},
 }
+
+-- setup color highlighter
+require'colorizer'.setup()
+
+-- indent guide
+vim.g.indent_blankline_char = '┊'
+vim.g.indent_blankline_space_char = ''
+--vim.g.indent_blankline_extra_indent_level = -1
+vim.g.indent_blankline_enabled = false
+--vim.g.indent_blankline_filetype_exclude = {'help', 'markdown'}
+--vim.g.indent_blankline_buftype_exclude = {'terminal'}
+--vim.g.indent_blankline_bufname_exclude = {'*.md'}
+
+-- make ranger replace netrw and be the file explorer
+vim.g.rnvimr_ex_enable = 1
+vim.g.rnvimr_draw_border = 1
+vim.g.rnvimr_pick_enable = 1
+vim.g.rnvimr_bw_enable = 1
+--vim.g.rnvimr_border_attr = {'fg': 14, 'bg': -1}
+vim.api.nvim_set_keymap('n', '-', ':RnvimrToggle<CR>', {noremap = true, silent = true})

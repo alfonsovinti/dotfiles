@@ -31,6 +31,11 @@ utils.opt('w', 'number', true)
 utils.opt('w', 'relativenumber', true)
 utils.opt('w', 'colorcolumn', '80')
 utils.opt('w', 'signcolumn', 'yes')
+-- folding
+utils.opt('w', 'foldmethod', 'indent')
+utils.opt('w', 'foldnestmax', 10)
+utils.opt('w', 'foldenable', false)
+utils.opt('w', 'foldlevel', 2)
 
 -- buffer local options
 -- utils.opt('b', 'modelines', false)      -- security

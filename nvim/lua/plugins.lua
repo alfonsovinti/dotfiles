@@ -8,8 +8,8 @@ return require('packer').startup(function()
 
   -- Fuzzy finder
   use {
-      'nvim-telescope/telescope.nvim',
-      requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
+    'nvim-telescope/telescope.nvim',
+    requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
   }
 
   -- LSP and completion
@@ -34,10 +34,17 @@ return require('packer').startup(function()
 
   -- file explorer
   use { 'kyazdani42/nvim-tree.lua' }
+
   -- use ranger in neovim
   use { 'kevinhwang91/rnvimr' }
 
-  -- Language support
+  -- high-performance color highlighter
+  use { 'norcalli/nvim-colorizer.lua' }
+
+  -- indent blankline
+  use { 'lukas-reineke/indent-blankline.nvim' }
+
+  -- language support
   use { 'dag/vim-fish' }
 
 end)
