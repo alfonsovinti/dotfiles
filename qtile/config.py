@@ -169,13 +169,26 @@ screens = [
     Screen(
         top=bar.Bar(
             [
+                widget.TextBox(
+                    text = 'ﮊ',
+                    background = colors[0],
+                    foreground = colors[4],
+                    padding = 10,
+                    fontsize = 20
+                ),
+                widget.Sep(
+                    linewidth = 0,
+                    padding = 3,
+                    foreground = colors[2],
+                    background = colors[0]
+                ),
+                widget.CurrentLayout(),
                 widget.Sep(
                     linewidth = 0,
                     padding = 8,
                     foreground = colors[2],
                     background = colors[0]
                 ),
-                widget.CurrentLayout(),
                 widget.GroupBox(
                     font = "FiraCode Nerd Font Bold",
                     fontsize = 9,
@@ -190,7 +203,7 @@ screens = [
                     highlight_color = colors[1],
                     highlight_method = "line",
                     this_current_screen_border = colors[6],
-                    this_screen_border = colors [4],
+                    this_screen_border = colors[4],
                     other_current_screen_border = colors[6],
                     other_screen_border = colors[4],
                     foreground = colors[2],
@@ -203,16 +216,84 @@ screens = [
                     foreground = colors[3],
                     background = colors[1]
                 ),
-                widget.WindowName(),
+                widget.Sep(
+                    linewidth = 0,
+                    padding = 30,
+                    foreground = colors[2],
+                    background = colors[0]
+                ),
+                widget.WindowName(
+                    foreground = colors[6],
+                    background = colors[0],
+                    padding = 0
+                ),
                 widget.Chord(
                     chords_colors={
                         'launch': ("#ff0000", "#ffffff"),
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                widget.Systray(),
+                widget.Systray(
+                    background = colors[0],
+                    padding = 5
+                ),
+                widget.Sep(
+                    linewidth = 0,
+                    padding = 6,
+                    foreground = colors[0],
+                    background = colors[0]
+                ),
+                widget.Net(
+                    interface = "wlp4s0",
+                    format = '{down} ↓↑ {up}',
+                    foreground = colors[4],
+                    background = colors[0],
+                    padding = 5
+                ),
+                widget.TextBox(
+                    text = " TEMP NOT SHOWN ",
+                    padding = 2,
+                    foreground = colors[2],
+                    background = colors[5],
+                    fontsize = 11
+                ),
+                widget.Sep(
+                    linewidth = 0,
+                    padding = 6,
+                    foreground = colors[0],
+                    background = colors[0]
+                ),
+                widget.TextBox(
+                    text = " ⟳",
+                    padding = 2,
+                    foreground = colors[4],
+                    background = colors[0],
+                    fontsize = 14
+                ),
+                widget.CheckUpdates(
+                    update_interval = 1800,
+                    distro = "Arch",
+                    display_format = "ﮮ {updates} Updates",
+                    foreground = colors[4],
+                    mouse_callbacks = {
+                        'Button1': lambda: qtile.cmd_spawn(myTerm + ' -e sudo pacman -Syu')
+                    },
+                    background = colors[0]
+                ),
+                widget.Sep(
+                    linewidth = 0,
+                    padding = 6,
+                    foreground = colors[0],
+                    background = colors[0]
+                ),
                 widget.Clock(format='%d/%m/%Y %a %H:%M'),
                 widget.QuickExit(),
+                widget.Sep(
+                    linewidth = 0,
+                    padding = 8,
+                    foreground = colors[2],
+                    background = colors[0]
+                ),
             ],
             32,
         ),
