@@ -146,14 +146,22 @@ layouts = [
     # layout.Zoomy(),
 ]
 
-colors = [["#2e3440", "#2e3440"], # panel background
-          ["#3b4252", "#434c5e"], # background for current screen tab
-          ["#d8dee9", "#d8dee9"], # font color for group names
-          ["#bf616a", "#bf616a"], # border line color for current tab
-          ["#b48ead", "#b48ead"], # border line color for 'other tabs' and color for 'odd widgets'
-          ["#5e81ac", "#5e81ac"], # color for the 'even widgets'
-          ["#b48ead", "#b48ead"], # window name
-          ["#4c566a", "#4c566a"]] # backbround for inactive screens
+colors = [["#2e3440", "#2e3440"], # 0
+          ["#3b4252", "#3b4252"], # 1
+          ["#434c5e", "#434c5e"], # 2
+          ["#4c566a", "#4c566a"], # 3
+          ["#d8dee9", "#d8dee9"], # 4
+          ["#e5e9f0", "#e5e9f0"], # 5
+          ["#eceff4", "#eceff4"], # 6
+          ["#8fbcbb", "#8fbcbb"], # 7
+          ["#88c0d0", "#88c0d0"], # 8
+          ["#81a1c1", "#81a1c1"], # 9
+          ["#5e81ac", "#5e81ac"], # 10
+          ["#bf616a", "#bf616a"], # 11
+          ["#d08770", "#d08770"], # 12
+          ["#ebcb8b", "#ebcb8b"], # 13
+          ["#a3be8c", "#a3be8c"], # 14
+          ["#b48ead", "#b48ead"]] # 15
 
 prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
 
@@ -172,21 +180,21 @@ screens = [
                 widget.TextBox(
                     text = 'ﮊ',
                     background = colors[0],
-                    foreground = colors[4],
+                    foreground = colors[15],
                     padding = 10,
                     fontsize = 20
                 ),
                 widget.Sep(
                     linewidth = 0,
                     padding = 3,
-                    foreground = colors[2],
+                    foreground = colors[4],
                     background = colors[0]
                 ),
                 widget.CurrentLayout(),
                 widget.Sep(
                     linewidth = 0,
                     padding = 8,
-                    foreground = colors[2],
+                    foreground = colors[4],
                     background = colors[0]
                 ),
                 widget.GroupBox(
@@ -197,39 +205,39 @@ screens = [
                     padding_y = 5,
                     padding_x = 3,
                     borderwidth = 3,
-                    active = colors[2],
-                    inactive = colors[7],
+                    active = colors[4],
+                    inactive = colors[3],
                     rounded = False,
                     highlight_color = colors[1],
                     highlight_method = "line",
-                    this_current_screen_border = colors[6],
-                    this_screen_border = colors[4],
-                    other_current_screen_border = colors[6],
-                    other_screen_border = colors[4],
-                    foreground = colors[2],
+                    this_current_screen_border = colors[15],
+                    this_screen_border = colors[15],
+                    other_current_screen_border = colors[15],
+                    other_screen_border = colors[15],
+                    foreground = colors[4],
                     background = colors[0]
                 ),
                 widget.Prompt(
                     prompt = prompt,
                     font = "FiraCode Nerd Font",
                     padding = 10,
-                    foreground = colors[3],
+                    foreground = colors[11],
                     background = colors[1]
                 ),
                 widget.Sep(
                     linewidth = 0,
                     padding = 30,
-                    foreground = colors[2],
+                    foreground = colors[4],
                     background = colors[0]
                 ),
                 widget.WindowName(
-                    foreground = colors[6],
+                    foreground = colors[7],
                     background = colors[0],
                     padding = 0
                 ),
                 widget.Chord(
                     chords_colors={
-                        'launch': ("#ff0000", "#ffffff"),
+                        'launch': (colors[11][0], colors[4][0]),
                     },
                     name_transform=lambda name: name.upper(),
                 ),
@@ -240,58 +248,54 @@ screens = [
                 widget.Sep(
                     linewidth = 0,
                     padding = 6,
-                    foreground = colors[0],
+                    foreground = colors[4],
                     background = colors[0]
                 ),
                 widget.Net(
                     interface = "wlp4s0",
                     format = '{down} ↓↑ {up}',
-                    foreground = colors[4],
+                    foreground = colors[12],
                     background = colors[0],
                     padding = 5
                 ),
-                widget.TextBox(
-                    text = " TEMP NOT SHOWN ",
-                    padding = 2,
-                    foreground = colors[2],
-                    background = colors[5],
-                    fontsize = 11
-                ),
+                # widget.TextBox(
+                #     text = " TEMP NOT SHOWN ",
+                #     padding = 2,
+                #     foreground = colors[2],
+                #     background = colors[5],
+                #     fontsize = 11
+                # ),
                 widget.Sep(
                     linewidth = 0,
                     padding = 6,
-                    foreground = colors[0],
-                    background = colors[0]
-                ),
-                widget.TextBox(
-                    text = " ⟳",
-                    padding = 2,
                     foreground = colors[4],
-                    background = colors[0],
-                    fontsize = 14
+                    background = colors[0]
                 ),
                 widget.CheckUpdates(
                     update_interval = 1800,
                     distro = "Arch",
-                    display_format = "ﮮ {updates} Updates",
-                    foreground = colors[4],
+                    display_format = "⟳ {updates} Updates",
                     mouse_callbacks = {
                         'Button1': lambda: qtile.cmd_spawn(myTerm + ' -e sudo pacman -Syu')
                     },
-                    background = colors[0]
+                    colour_have_updates = colors[14],
+                    foreground = colors[4],
                 ),
                 widget.Sep(
                     linewidth = 0,
                     padding = 6,
-                    foreground = colors[0],
+                    foreground = colors[4],
                     background = colors[0]
                 ),
                 widget.Clock(format='%d/%m/%Y %a %H:%M'),
-                widget.QuickExit(),
+                widget.QuickExit(
+                    foreground = colors[4],
+                    default_text = ""
+                ),
                 widget.Sep(
                     linewidth = 0,
                     padding = 8,
-                    foreground = colors[2],
+                    foreground = colors[4],
                     background = colors[0]
                 ),
             ],

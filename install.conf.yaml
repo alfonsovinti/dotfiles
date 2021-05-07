@@ -23,6 +23,7 @@
     ~/.emacs.d/init.el: emacs/init.el
     ~/.emacs.d/elisp: emacs/elisp
     ~/.emacs.d/config/eshell/aliases: emacs/config/eshell/aliases
+    ~/.emacs.d/config/themes/doom-purple-nord-theme.el: emacs/config/themes/doom-purple-nord-theme.el
     ~/.bash_logout: bash/bash_logout
     ~/.bash_profile: bash/bash_profile
     ~/.bashrc: bash/bashrc

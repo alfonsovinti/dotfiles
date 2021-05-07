@@ -8,68 +8,24 @@
 #  /   /  \\  \\\   /
 # (___/    \___)\__/
 #
-# check-installed-packages.sh
+# check-installed-npm-packages.sh
 
-# required packages
 packages=(
-    # Termina & shells
-    "xterm"
-    "alacritty"
-    "zsh"
-    #zsh-completions
-    "fish"
-    "tmux"
-    #wpa_supplicant
-    #network-manager-applet
-    #networkmanager
-    #kvantum-qt5
-    #openssh
-    # DE
-    #"xorg"
-    "lxsession-gtk3"
-    "picom"          # composer
-    "arandr"
-    "pcmanfm-gtk3"
-    #"xarchiver"
-    #"gvfs" # (optional) for trash support, mounting with udisks and remote filesystems
-    "lxappearance-gtk3"
-    #"lxinput-gtk3"
-    #"lxrandr-gtk3"
-    # Utility
-    "reflector"      # repo manager
-    "dialog"
-    "git"
-    "htop"
-    "bat"            # cat
-    "exa"
-    "i3lock"
-    "feh"            # wall manager
-    "xdg-user-dirs"
-    "python"
-    "python-pip"
-    "xsel"           # getting and setting the contents of the X selection
-    # Editor
-    "emacs"
-    "python-pynvim"  # requirede by neovim
-    # File manager
-    "ranger"
-    "nnn"
-    "dmenu"
-    "rofi"
-    "sl"
-    "firefox"
-    "nodejs"
-    "npm"
-)
-
-aurp=(
-    "neovim-git"
-    "ueberzug"
+    "typescript-language-server"
+    "typescript"
+    "vscode-json-languageserver"
+    "bash-language-server"
+    "vscode-css-languageserver-bin"
+    "vscode-html-languageserver-bin"
+    "unified-language-server"
+    #"intelephense"
+    "pyright"
+    "yaml-language-server"
 )
 
 _isInstalled() {
     package="$1";
-    check="$(sudo pacman -Qs --color always "${package}" | grep "local" | grep "${package} ")";
+    check="$(sudo npm list -g "${package}" | grep "${package}")";
     if [ -n "${check}" ] ; then
         echo 0; #'0' means 'true' in Bash
         return; #true
@@ -102,5 +58,5 @@ else
     printf -v toInstallList "%s " "${toInstall[@]}";
     # Otherwise, install all the packages that have been added to the "${toInstall[@]}" array.
     printf "\nPackages not installed:\n%s\n\n" "${toInstallList}";
-    sudo pacman -S "${toInstall[@]}";
+    sudo npm i -g "${toInstall[@]}";
 fi;
