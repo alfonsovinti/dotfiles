@@ -88,12 +88,12 @@ stashed = '\$'
 ahead = '⇡'
 behind = '⇣'
 diverged = '⇕'
-conflicted = ''
-deleted = ''
+conflicted = '='
+deleted = 'x'
 renamed = ''
-modified = ''
-staged = ''
-untracked = ''
+modified = '!'
+staged = '+'
+untracked = '?'
 
 [hostname]
 disabled = false
