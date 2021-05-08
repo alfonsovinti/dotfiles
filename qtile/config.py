@@ -178,10 +178,10 @@ screens = [
         top=bar.Bar(
             [
                 widget.TextBox(
+                    padding = 10,
                     text = 'ﮊ',
                     background = colors[0],
                     foreground = colors[15],
-                    padding = 10,
                     fontsize = 20
                 ),
                 widget.Sep(
@@ -190,10 +190,14 @@ screens = [
                     foreground = colors[4],
                     background = colors[0]
                 ),
-                widget.CurrentLayout(),
+                widget.CurrentLayoutIcon(
+                    padding = 0,
+                    scale = 0.4,
+                ),
+                #widget.CurrentLayout(),
                 widget.Sep(
                     linewidth = 0,
-                    padding = 8,
+                    padding = 6,
                     foreground = colors[4],
                     background = colors[0]
                 ),
@@ -218,9 +222,9 @@ screens = [
                     background = colors[0]
                 ),
                 widget.Prompt(
+                    padding = 10,
                     prompt = prompt,
                     font = "FiraCode Nerd Font",
-                    padding = 10,
                     foreground = colors[11],
                     background = colors[1]
                 ),
@@ -231,19 +235,28 @@ screens = [
                     background = colors[0]
                 ),
                 widget.WindowName(
+                    padding = 0,
                     foreground = colors[7],
-                    background = colors[0],
-                    padding = 0
                 ),
                 widget.Chord(
+                    padding = 0,
                     chords_colors={
                         'launch': (colors[11][0], colors[4][0]),
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                widget.Systray(
-                    background = colors[0],
-                    padding = 5
+                widget.Sep(
+                    linewidth = 0,
+                    padding = 30,
+                    foreground = colors[4],
+                    background = colors[0]
+                ),
+                widget.Net(
+                    padding = 0,
+                    interface = "wlp4s0",
+                    format = '{down} ↓↑ {up}',
+                    foreground = colors[12],
+                    update_interval = 5
                 ),
                 widget.Sep(
                     linewidth = 0,
@@ -251,20 +264,32 @@ screens = [
                     foreground = colors[4],
                     background = colors[0]
                 ),
-                widget.Net(
-                    interface = "wlp4s0",
-                    format = '{down} ↓↑ {up}',
-                    foreground = colors[12],
-                    background = colors[0],
-                    padding = 5
+                widget.CPU(
+                    padding = 0,
+                    format = " {freq_current}GHz {load_percent}% ",
+                    foreground = colors[10],
                 ),
-                # widget.TextBox(
-                #     text = " TEMP NOT SHOWN ",
-                #     padding = 2,
-                #     foreground = colors[2],
-                #     background = colors[5],
-                #     fontsize = 11
-                # ),
+                widget.Memory(
+                    padding = 0,
+                    format = " {MemUsed:.0f}{mm}/{MemTotal:.0f}{mm}",
+                    foreground = colors[10],
+                ),
+                widget.Sep(
+                    linewidth = 0,
+                    padding = 6,
+                    foreground = colors[4],
+                    background = colors[0]
+                ),
+                widget.ThermalSensor(
+                    padding = 0,
+                    foreground = colors[11],
+                    fmt = " {}"
+                ),
+                widget.NvidiaSensors(
+                    padding = 0,
+                    foreground = colors[11],
+                    format = " {temp}°C"
+                ),
                 widget.Sep(
                     linewidth = 0,
                     padding = 6,
@@ -272,6 +297,7 @@ screens = [
                     background = colors[0]
                 ),
                 widget.CheckUpdates(
+                    padding = 0,
                     update_interval = 1800,
                     distro = "Arch",
                     display_format = "⟳ {updates} Updates",
@@ -287,17 +313,51 @@ screens = [
                     foreground = colors[4],
                     background = colors[0]
                 ),
-                widget.Clock(format='%d/%m/%Y %a %H:%M'),
-                widget.QuickExit(
-                    foreground = colors[4],
-                    default_text = ""
+                widget.Systray(
+                    padding = 0,
+                    #icon_size = 22
                 ),
                 widget.Sep(
                     linewidth = 0,
-                    padding = 8,
+                    padding = 6,
                     foreground = colors[4],
                     background = colors[0]
                 ),
+                widget.Volume(
+                    padding = 0,
+                    emoji = False,
+                    fmt = "墳 {}",
+                    #fontsize = 18,
+                ),
+                widget.Sep(
+                    linewidth = 0,
+                    padding = 6,
+                    foreground = colors[4],
+                    background = colors[0]
+                ),
+                widget.Clock(
+                    padding = 0,
+                    format='%d/%m/%Y %a %H:%M'
+                ),
+                widget.Sep(
+                    linewidth = 0,
+                    padding = 5,
+                    foreground = colors[4],
+                    background = colors[0]
+                ),
+                widget.QuickExit(
+                    default_text = " ",
+                    countdown_format = "{}",
+                    fontsize = 16,
+                    padding = 4,
+                    foreground = colors[11]
+                ),
+                # widget.Sep(
+                #     linewidth = 0,
+                #     padding = 8,
+                #     foreground = colors[4],
+                #     background = colors[0]
+                # ),
             ],
             32,
         ),
