@@ -81,6 +81,13 @@ keys = [
         lazy.layout.normalize(),
         desc="Reset all window sizes"),
 
+    Key([mod, "shift"], "f",
+        lazy.window.toggle_floating(),
+        desc='Toggle floating'),
+    Key([mod], "f",
+        lazy.window.toggle_fullscreen(),
+        desc='Toggle fullscreen'),
+
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
     # Unsplit = 1 window displayed, like Max layout, but still with
@@ -283,7 +290,7 @@ screens = [
                 widget.ThermalSensor(
                     padding = 0,
                     foreground = colors[11],
-                    fmt = " {}"
+                    fmt = " {} "
                 ),
                 widget.NvidiaSensors(
                     padding = 0,
