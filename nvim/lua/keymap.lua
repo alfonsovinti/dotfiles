@@ -85,20 +85,21 @@ utils.map('n', '<M-j>', ':TmuxNavigateDown<cr>', {silent = true})
 utils.map('n', '<M-k>', ':TmuxNavigateUp<cr>', {silent = true})
 utils.map('n', '<M-l>', ':TmuxNavigateRight<cr>', {silent = true})
 utils.map('n', '<M-\\>', ':TmuxNavigatePrevious<cr>', {silent = true})
+-- split current window horizzontally
+utils.map('n', '<M-_>', '<C-w>s', {silent = true})
+-- split current window vertically
+utils.map('n', '<M-|>', '<C-w>v', {silent = true})
 -- mooving windows
 utils.map('n', '<M-H>', '<C-w>H', {silent = true})
 utils.map('n', '<M-J>', '<C-w>J', {silent = true})
 utils.map('n', '<M-K>', '<C-w>K', {silent = true})
 utils.map('n', '<M-L>', '<C-w>L', {silent = true})
 -- resize windows
-utils.map('n', '<M-+>', '<C-w>+', {silent = true})
-utils.map('n', '<M-->', '<C-w>-', {silent = true})
-utils.map('n', '<M-<>', '<C-w><', {silent = true})
-utils.map('n', '<M->>', '<C-w>>', {silent = true})
--- split current window horizzontally
-utils.map('n', '<M-_>', '<C-w>s', {silent = true})
--- split current window vertically
-utils.map('n', '<M-|>', '<C-w>v', {silent = true})
+utils.map('n', '<M-C-k>', '<C-w>+', {silent = true})
+utils.map('n', '<M-C-j>', '<C-w>-', {silent = true})
+utils.map('n', '<M-C-h>', '<C-w><', {silent = true})
+utils.map('n', '<M-C-l>', '<C-w>>', {silent = true})
+utils.map('n', '<M-=>', '<C-w>=', {silent = true})
 -- full screen
 vim.g.maximizer_default_mapping_key = '<M-f>'
 
