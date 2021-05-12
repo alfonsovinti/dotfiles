@@ -27,3 +27,4 @@ require('lsp')
 
 -- Another option is to groups configuration in one folder
 require('config')
+require('config.which-key')

@@ -1,7 +1,7 @@
 return require('packer').startup(function()
 
   -- Packer can manage itself as an optional plugin
-  use {'wbthomason/packer.nvim', opt = true}
+  use { 'wbthomason/packer.nvim', opt = true }
 
   -- Color scheme
   use { 'arcticicestudio/nord-vim' }
@@ -17,13 +17,23 @@ return require('packer').startup(function()
   use { 'nvim-lua/completion-nvim' }
 
   -- Treesitter
-  use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
   -- Vim dispatch
   -- use { 'tpope/vim-dispatch' }
 
-  -- Fugitive for Git
-  -- use { 'tpope/vim-fugitive' }
+  -- Git
+  use {
+    'TimUntersberger/neogit',
+    requires = {'nvim-lua/plenary.nvim'}
+  }
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = {'nvim-lua/plenary.nvim'}
+  }
+
+  -- which-key
+  use { 'folke/which-key.nvim' }
 
   -- Vim windows nav
   use { 'christoomey/vim-tmux-navigator' }
