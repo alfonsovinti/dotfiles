@@ -18,7 +18,7 @@
     ~/.config/qtile/config.py: qtile/config.py
     ~/.config/rofi/nord.rasi: rofi/nord.rasi
     ~/.config/starship.toml: misc/starship.toml
-    ~/.config/user-dirs.dirs: misc/user-dirs.dirs
+#    ~/.config/user-dirs.dirs: misc/user-dirs.dirs
     ~/.emacs.d/early-init.el: emacs/early-init.el
     ~/.emacs.d/init.el: emacs/init.el
     ~/.emacs.d/elisp: emacs/elisp
