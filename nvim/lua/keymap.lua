@@ -62,16 +62,16 @@ utils.map('n', '<Leader>Tw', '<Cmd>set wrap! wrap?<CR>', {silent = true}) -- tog
 -- tabs
 utils.map('n', '<Leader>t', '<Cmd>tabnew<CR>', {silent = true})
 -- switching tabs quickly
-utils.map('n', '<Leader>1', '1gt')
-utils.map('n', '<Leader>2', '2gt')
-utils.map('n', '<Leader>3', '3gt')
-utils.map('n', '<Leader>4', '4gt')
-utils.map('n', '<Leader>5', '5gt')
-utils.map('n', '<Leader>6', '6gt')
-utils.map('n', '<Leader>7', '7gt')
-utils.map('n', '<Leader>8', '8gt')
-utils.map('n', '<Leader>9', '9gt')
-utils.map('n', '<Leader>0', '<Cmd>tablast<CR>')
+utils.map('n', '<Leader>1', '1gt', {silent = true})
+utils.map('n', '<Leader>2', '2gt', {silent = true})
+utils.map('n', '<Leader>3', '3gt', {silent = true})
+utils.map('n', '<Leader>4', '4gt', {silent = true})
+utils.map('n', '<Leader>5', '5gt', {silent = true})
+utils.map('n', '<Leader>6', '6gt', {silent = true})
+utils.map('n', '<Leader>7', '7gt', {silent = true})
+utils.map('n', '<Leader>8', '8gt', {silent = true})
+utils.map('n', '<Leader>9', '9gt', {silent = true})
+utils.map('n', '<Leader>0', '<Cmd>tablast<CR>', {silent = true})
 
 -- buffers
 utils.map('n', '<Leader>ba', '<C-^>')
@@ -99,7 +99,7 @@ utils.map('n', '<M-C-k>', '<C-w>+', {silent = true})
 utils.map('n', '<M-C-j>', '<C-w>-', {silent = true})
 utils.map('n', '<M-C-h>', '<C-w><', {silent = true})
 utils.map('n', '<M-C-l>', '<C-w>>', {silent = true})
-utils.map('n', '<M-=>', '<C-w>=', {silent = true})
+utils.map('n', '<M-n>', '<C-w>=', {silent = true})
 -- full screen
 vim.g.maximizer_default_mapping_key = '<M-f>'
 
