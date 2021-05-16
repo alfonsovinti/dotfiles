@@ -28,6 +28,7 @@ utils.opt('o', 'cmdheight', 2)          -- give more space for displaying messag
 
 -- window local options
 utils.opt('w', 'number', true)
+utils.opt('w', 'cursorline', true)
 utils.opt('w', 'relativenumber', true)
 utils.opt('w', 'colorcolumn', '80')
 utils.opt('w', 'signcolumn', 'yes')
@@ -35,7 +36,7 @@ utils.opt('w', 'signcolumn', 'yes')
 utils.opt('w', 'foldmethod', 'indent')
 utils.opt('w', 'foldnestmax', 10)
 utils.opt('w', 'foldenable', false)
-utils.opt('w', 'foldlevel', 2)
+utils.opt('w', 'foldlevel', 10)
 
 -- buffer local options
 -- utils.opt('b', 'modelines', false)      -- security

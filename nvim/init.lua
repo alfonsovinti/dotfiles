@@ -1,4 +1,5 @@
 -- Map leader
+vim.api.nvim_set_keymap('n', '<Space>', '<NOP>', { noremap = true, silent = true })
 vim.g.mapleader = ' '
 
 local fn = vim.fn -- to call Vim functions e.g. fn.bufnr()
@@ -8,9 +9,9 @@ local execute = vim.api.nvim_command
 require('settings')
 
 -- Auto install packer.nvim if not exists
-local install_path = fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
+local install_path = fn.stdpath('data') .. '/site/pack/packer/opt/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-  execute('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
+  execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
 end
 vim.cmd [[packadd packer.nvim]]
 -- Auto compile when there are changes in plugins.lua
@@ -24,6 +25,8 @@ require('keymap')
 
 -- Setup Lua language server using submodule
 require('lsp')
+require('lsp.bash-ls')
+require('lsp.lua-ls')
 
 -- Another option is to groups configuration in one folder
 require('config')

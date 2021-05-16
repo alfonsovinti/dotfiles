@@ -40,24 +40,11 @@ utils.map('n', '#', '#zz')
 utils.map('n', 'g*', 'g*zz')
 utils.map('n', 'g#', 'g#z')
 
--- clear search
-utils.map('n', '<Leader>c', '<Cmd>let @/ = ""<CR>', {silent = true})
-
--- clear highlights
-utils.map('n', '<Leader>l', '<Cmd>noh<CR>')
-
--- set working director
-utils.map('n', '<Leader>.', '<Cmd>lcd %:p:h<CR>')
-
 -- qq to record, Q to replay
 utils.map('n', 'Q', '@q')
 
 -- make Y from cursor to end, similarly to D and C
 utils.map('n', 'Y', 'y$')
-
--- toggle ui/option
-utils.map('n', '<Leader>Ts', '<Cmd>set hlsearch! hlsearch?<CR>', {silent = true}) -- toggle highlighted search
-utils.map('n', '<Leader>Tw', '<Cmd>set wrap! wrap?<CR>', {silent = true}) -- toggle line wrap
 
 -- tabs
 utils.map('n', '<Leader>t', '<Cmd>tabnew<CR>', {silent = true})
@@ -103,12 +90,6 @@ utils.map('n', '<M-n>', '<C-w>=', {silent = true})
 -- full screen
 vim.g.maximizer_default_mapping_key = '<M-f>'
 
--- telescope
-utils.map('n', '<Leader>ff', '<Cmd>Telescope find_files<CR>')
-utils.map('n', '<Leader>fg', '<Cmd>Telescope live_grep<CR>')
-utils.map('n', '<Leader>fb', '<Cmd>Telescope buffers<CR>')
-utils.map('n', '<Leader>fh', '<Cmd>Telescope help_tags<CR>')
-
 -- map j to gj and k to gk, so line navigation ignores line wrap
 -- ...but only if the count is undefined (otherwise, things like 4j
 -- break if wrapped LINES are present)
@@ -118,9 +99,11 @@ cmd 'xnoremap <expr> j (v:count == 0 ? \'gj\' : \'j\')'
 cmd 'xnoremap <expr> k (v:count == 0 ? \'gk\' : \'k\')'
 
 -- TODO da modificare, sovrascrive altre keymap
--- Opens an edit command with the path of the currently edited file filled in
+-- set working director
+utils.map('n', '<Leader>.', '<Cmd>lcd %:p:h<CR>')
+-- opens an edit command with the path of the currently edited file filled in
 cmd 'noremap <Leader>e :ee <C-R>=expand("%:p:h") . "/" <CR>'
--- Opens a tab edit command with the path of the currently edited file filled
+-- opens a tab edit command with the path of the currently edited file filled
 cmd 'noremap <Leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>'
--- Opens a vertical split edit command with the path of the currently edited file filled
+-- opens a vertical split edit command with the path of the currently edited file filled
 cmd 'noremap <Leader>es :vsplit <C-R>=expand("%:p:h") . "/" <CR>'

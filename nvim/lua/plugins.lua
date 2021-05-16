@@ -14,6 +14,7 @@ return require('packer').startup(function()
 
   -- LSP and completion
   use { 'neovim/nvim-lspconfig' }
+  -- https://github.com/kabouzeid/nvim-lspinstall
   use { 'nvim-lua/completion-nvim' }
 
   -- Treesitter
@@ -21,6 +22,9 @@ return require('packer').startup(function()
 
   -- Vim dispatch
   -- use { 'tpope/vim-dispatch' }
+
+  -- Comment
+  use { 'b3nj5m1n/kommentary' }
 
   -- Git
   use {

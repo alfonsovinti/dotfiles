@@ -95,3 +95,6 @@ alias jctl="journalctl -p 3 -xb"
 alias tobash="sudo chsh $USER -s /bin/bash && echo \"Need log out.\""
 alias tozsh="sudo chsh $USER -s /bin/zsh && echo \"Need log out.\""
 alias tofish="sudo chsh $USER -s /bin/fish && echo \"Need log out.\""
+
+# luamake
+alias luamake=/home/me/.local/share/lua-language-server/3rd/luamake/luamake
