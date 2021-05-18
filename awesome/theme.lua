@@ -11,24 +11,41 @@ local themes_path = gfs.get_themes_dir()
 
 local theme = {}
 
-theme.font          = "sans 8"
+theme.nord0  = "#2E3440"
+theme.nord1  = "#3B4252"
+theme.nord2  = "#434C5E"
+theme.nord3  = "#4C566A"
+theme.nord4  = "#D8DEE9"
+theme.nord5  = "#E5E9F0"
+theme.nord6  = "#ECEFF4"
+theme.nord7  = "#8FBCBB"
+theme.nord8  = "#88C0D0"
+theme.nord9  = "#81A1C1"
+theme.nord10 = "#5E81AC"
+theme.nord11 = "#BF616A"
+theme.nord12 = "#D08770"
+theme.nord13 = "#EBCB8B"
+theme.nord14 = "#A3BE8C"
+theme.nord15 = "#B48EAD"
 
-theme.bg_normal     = "#222222"
-theme.bg_focus      = "#535d6c"
-theme.bg_urgent     = "#ff0000"
-theme.bg_minimize   = "#444444"
+theme.font          = "FiraCode Nerd Font 10"
+
+theme.bg_normal     = theme.nord0
+theme.bg_focus      = theme.nord3
+theme.bg_urgent     = theme.nord11
+theme.bg_minimize   = theme.nord1
 theme.bg_systray    = theme.bg_normal
 
-theme.fg_normal     = "#aaaaaa"
-theme.fg_focus      = "#ffffff"
-theme.fg_urgent     = "#ffffff"
-theme.fg_minimize   = "#ffffff"
+theme.fg_normal     = theme.nord4
+theme.fg_focus      = theme.nord6
+theme.fg_urgent     = theme.nord4
+theme.fg_minimize   = theme.nord4
 
 theme.useless_gap   = dpi(0)
-theme.border_width  = dpi(1)
-theme.border_normal = "#000000"
-theme.border_focus  = "#535d6c"
-theme.border_marked = "#91231c"
+theme.border_width  = dpi(3)
+theme.border_normal = theme.nord1
+theme.border_focus  = theme.nord15
+theme.border_marked = theme.nord14
 
 -- There are other variable sets
 -- overriding the default one when
