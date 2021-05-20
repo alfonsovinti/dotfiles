@@ -8,6 +8,7 @@ cmd 'syntax enable'
 cmd 'filetype plugin indent on'
 
 -- global options
+utils.opt('o', 'modelines', 1)
 utils.opt('o', 'hidden', true)          -- hide buffers, not close them
 utils.opt('o', 'backup', false)         -- disable backup before overwriting a file
 utils.opt('o', 'exrc', true)            -- search on current directory .nvimrc or .exrc files
@@ -39,7 +40,7 @@ utils.opt('w', 'foldenable', false)
 utils.opt('w', 'foldlevel', 10)
 
 -- buffer local options
--- utils.opt('b', 'modelines', false)      -- security
+utils.opt('b', 'modeline', false)
 utils.opt('b', 'undofile', true)        -- maintain undo history between sessions
 utils.opt('b', 'swapfile', false)
 utils.opt('b', 'expandtab', true)       -- add spaces not tab
@@ -65,4 +66,4 @@ utils.augroup({
 cmd('au BufNewFile,BufRead * if &ft == "" | set ft=text | endif')
 
 -- GUI
-utils.opt('o', 'guifont', 'FiraCode Nerd Font:h10')
+utils.opt('o', 'guifont', 'FiraCode Nerd Font:h11')
