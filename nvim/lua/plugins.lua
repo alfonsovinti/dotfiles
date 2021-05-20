@@ -3,8 +3,17 @@ return require('packer').startup(function()
   -- Packer can manage itself as an optional plugin
   use { 'wbthomason/packer.nvim', opt = true }
 
-  -- Color scheme
+  -- icons
+  use { 'kyazdani42/nvim-web-devicons' }
+
+  -- color scheme
   use { 'arcticicestudio/nord-vim' }
+
+  -- galaxyline
+  use {
+    'glepnir/galaxyline.nvim', branch = 'main',
+      requires = {'kyazdani42/nvim-web-devicons'}
+  }
 
   -- Fuzzy finder
   use {
@@ -42,9 +51,6 @@ return require('packer').startup(function()
   -- Vim windows nav
   use { 'christoomey/vim-tmux-navigator' }
   use { 'szw/vim-maximizer' }
-
-  -- icons
-  use { 'kyazdani42/nvim-web-devicons' }
 
   -- file explorer
   use { 'kyazdani42/nvim-tree.lua' }

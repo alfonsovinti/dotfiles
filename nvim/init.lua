@@ -30,4 +30,5 @@ require('lsp.lua-ls')
 
 -- Another option is to groups configuration in one folder
 require('config')
+require('config.galaxyline')
 require('config.which-key')
