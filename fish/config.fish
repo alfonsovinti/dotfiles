@@ -35,9 +35,8 @@ set XDG_CACHE_HOME "$HOME/.cache"
 #[[ ! -d "${XDG_DATA_HOME}" ]] && mkdir -p "${XDG_DATA_HOME}"
 
 # editor
-#set EDITOR "nvim" # in terminal
-set EDITOR "emacsclient -t -a ''" # in terminal
-set VISUAL "emacsclient -c -a emacs" # GUI mode
+set EDITOR "nvim" # in terminal
+set VISUAL "nvim" # GUI mode
 
 # manpage most readable
 #se -x MANPAGER "nvim -c 'set ft=man' -" # set neovim as manpager
