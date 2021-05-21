@@ -1,5 +1,5 @@
 -- Global
-local awesome, client, screen = awesome, client, screen
+local awesome, client, screen, root = awesome, client, screen, root
 
 -- If LuaRocks is installed, make sure that packages installed through it are
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
@@ -20,6 +20,9 @@ local beautiful = require("beautiful")
 local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
+
+-- Table
+local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
@@ -58,13 +61,13 @@ local terminal = "alacritty"
 local terminal_fish = "alacritty -e fish"
 local editor = os.getenv("EDITOR") or "vi"
 local editor_cmd = terminal .. " -e " .. editor
-local editorgui = "geany"
+local editor_gui = os.getenv("VISUAL") or editor_cmd
 local browser = "firefox"
-local filemanager = "thunar"
-local mailclient = "geary"
-local mediaplayer = "vlc"
-local scrlocker = "slimlock"
-local virtualmachine = "virtualbox"
+local file_manager = "thunar"
+local mail_client = terminal .. " -e neomutt"
+local media_player = "vlc"
+local scr_locker = "light-locker"
+local virtual_machine = "virtualbox"
 
 -- Default keys.
 local modkey = "Mod4"
@@ -84,16 +87,16 @@ awful.layout.layouts = {
 
 -- {{{ Menu
 -- Create a launcher widget and a main menu
-local myawesomemenu = {
+local my_awmenu = {
   { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
   { "manual", terminal .. " -e man awesome" },
   { "edit config", editor_cmd .. " " .. awesome.conffile },
   { "restart", awesome.restart }
 }
 
-local mymainmenu = awful.menu({
+local my_mainmenu = awful.menu({
   items = {
-    { "awesome", myawesomemenu, beautiful.awesome_icon },
+    { "awesome", my_awmenu, beautiful.awesome_icon },
     { "terminal", terminal_fish },
     { "log out", function() awesome.quit() end },
     { "sleep", "systemctl suspend" },
@@ -102,9 +105,9 @@ local mymainmenu = awful.menu({
   }
 })
 
-local mylauncher = awful.widget.launcher({
+local my_launcher = awful.widget.launcher({
   image = beautiful.awesome_icon,
-  menu = mymainmenu
+  menu = my_mainmenu
 })
 
 -- Menubar configuration
@@ -112,14 +115,14 @@ menubar.utils.terminal = terminal_fish -- Set the terminal for applications that
 -- }}}
 
 -- Keyboard map indicator and switcher
-local mykeyboardlayout = awful.widget.keyboardlayout()
+local my_keyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
-local mytextclock = wibox.widget.textclock()
+local my_textclock = wibox.widget.textclock()
 
 -- Create a wibox for each screen and add it
-local taglist_buttons = gears.table.join(
+local taglist_buttons = my_table.join(
   awful.button({ }, 1, function(t) t:view_only() end),
   awful.button({ modkey }, 1,
                function(t)
@@ -138,7 +141,7 @@ local taglist_buttons = gears.table.join(
   awful.button({ }, 5, function(t) awful.tag.viewprev(t.screen) end)
 )
 
-local tasklist_buttons = gears.table.join(
+local tasklist_buttons = my_table.join(
   awful.button({ }, 1,
                function (c)
                  if c == client.focus then
@@ -189,63 +192,63 @@ awful.screen.connect_for_each_screen(function(s)
   -- awful.tag({ "", "", "", "", "" }, s, awful.layout.layouts[1])
 
   -- Create a promptbox for each screen
-  s.mypromptbox = awful.widget.prompt()
+  s.my_promptbox = awful.widget.prompt()
   -- Create an imagebox widget which will contain an icon indicating which layout we're using.
   -- We need one layoutbox per screen.
-  s.mylayoutbox = awful.widget.layoutbox(s)
-  s.mylayoutbox:buttons(gears.table.join(
+  s.my_layoutbox = awful.widget.layoutbox(s)
+  s.my_layoutbox:buttons(my_table.join(
                         awful.button({ }, 1, function () awful.layout.inc( 1) end),
                         awful.button({ }, 3, function () awful.layout.inc(-1) end),
                         awful.button({ }, 4, function () awful.layout.inc( 1) end),
                         awful.button({ }, 5, function () awful.layout.inc(-1) end)))
   -- Create a taglist widget
-  s.mytaglist = awful.widget.taglist {
+  s.my_taglist = awful.widget.taglist {
     screen  = s,
     filter  = awful.widget.taglist.filter.all,
     buttons = taglist_buttons
   }
 
   -- Create a tasklist widget
-  s.mytasklist = awful.widget.tasklist {
+  s.my_tasklist = awful.widget.tasklist {
     screen  = s,
     filter  = awful.widget.tasklist.filter.currenttags,
     buttons = tasklist_buttons
   }
 
   -- Create the wibox
-  s.mywibox = awful.wibar({ position = "top", screen = s })
+  s.my_wibox = awful.wibar({ position = "top", screen = s })
 
   -- Add widgets to the wibox
-  s.mywibox:setup {
+  s.my_wibox:setup {
     layout = wibox.layout.align.horizontal,
     { -- Left widgets
       layout = wibox.layout.fixed.horizontal,
-      mylauncher,
-        s.mytaglist,
-        s.mypromptbox,
+      my_launcher,
+        s.my_taglist,
+        s.my_promptbox,
       },
-      s.mytasklist, -- Middle widget
+      s.my_tasklist, -- Middle widget
       { -- Right widgets
         layout = wibox.layout.fixed.horizontal,
-        mykeyboardlayout,
+        my_keyboardlayout,
         wibox.widget.systray(),
-        mytextclock,
-        s.mylayoutbox,
+        my_textclock,
+        s.my_layoutbox,
       },
   }
 end)
 -- }}}
 
 -- {{{ Mouse bindings
-root.buttons(gears.table.join(
-  awful.button({ }, 3, function () mymainmenu:toggle() end),
+root.buttons(my_table.join(
+  awful.button({ }, 3, function () my_mainmenu:toggle() end),
   awful.button({ }, 4, awful.tag.viewnext),
   awful.button({ }, 5, awful.tag.viewprev)
 ))
 -- }}}
 
 -- {{{ Key bindings
-globalkeys = gears.table.join(
+globalkeys = my_table.join(
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
@@ -267,7 +270,7 @@ globalkeys = gears.table.join(
         end,
         {description = "focus previous by index", group = "client"}
     ),
-    awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
+    awful.key({ modkey,           }, "w", function () my_mainmenu:show() end,
               {description = "show main menu", group = "awesome"}),
 
     -- Layout manipulation
@@ -328,14 +331,14 @@ globalkeys = gears.table.join(
               {description = "restore minimized", group = "client"}),
 
     -- Prompt
-    awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
+    awful.key({ modkey },            "r",     function () awful.screen.focused().my_promptbox:run() end,
               {description = "run prompt", group = "launcher"}),
 
     awful.key({ modkey }, "x",
               function ()
                   awful.prompt.run {
                     prompt       = "Run Lua code: ",
-                    textbox      = awful.screen.focused().mypromptbox.widget,
+                    textbox      = awful.screen.focused().my_promptbox.widget,
                     exe_callback = awful.util.eval,
                     history_path = awful.util.get_cache_dir() .. "/history_eval"
                   }
@@ -346,7 +349,7 @@ globalkeys = gears.table.join(
               {description = "show the menubar", group = "launcher"})
 )
 
-clientkeys = gears.table.join(
+clientkeys = my_table.join(
     awful.key({ modkey,           }, "f",
         function (c)
             c.fullscreen = not c.fullscreen
@@ -394,7 +397,7 @@ clientkeys = gears.table.join(
 -- Be careful: we use keycodes to make it work on any keyboard layout.
 -- This should map on the top row of your keyboard, usually 1 to 9.
 for i = 1, 9 do
-    globalkeys = gears.table.join(globalkeys,
+    globalkeys = my_table.join(globalkeys,
         -- View tag only.
         awful.key({ modkey }, "#" .. i + 9,
                   function ()
@@ -440,7 +443,7 @@ for i = 1, 9 do
     )
 end
 
-clientbuttons = gears.table.join(
+clientbuttons = my_table.join(
     awful.button({ }, 1, function (c)
         c:emit_signal("request::activate", "mouse_click", {raise = true})
     end),
@@ -534,7 +537,7 @@ end)
 -- Add a titlebar if titlebars_enabled is set to true in the rules.
 client.connect_signal("request::titlebars", function(c)
     -- buttons for the titlebar
-    local buttons = gears.table.join(
+    local buttons = my_table.join(
         awful.button({ }, 1, function()
             c:emit_signal("request::activate", "titlebar", { raise = true })
             awful.mouse.client.move(c)

@@ -50,3 +50,17 @@ sudo apt-get purge compton
 # touchpad-indicator
 # zenity
 # zim
+
+
+
+# XFCE
+# provide to istall following packages
+# xfce4-session
+# xfce4-settings
+# xfce4-power-manager
+# thunar
+sudo apt-get install --no-install-recommends xfce4-session xfce4-power-manager librsvg2-common
+sudo apt-get install --install-recommends xfce4-settings upower systemd-sysv light-locker thunar thunar-volman thunar-archive-plugin thunar-media-tags-plugin
+
+#
+sudo apt-get install --no-install-recommends dunst
