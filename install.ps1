@@ -55,6 +55,7 @@ New-Item -Path "$PROFILE" -ItemType File -Force -Value "$profile_value"
 
 #Copy-Item ".\power-shell\profile.ps1" -Destination "$PROFILE" -Force
 #Copy-Item ".\starship\starship.toml" -Destination "$env:USERPROFILE\.config\starship.toml" -Force
+#New-Item -ItemType SymbolicLink -Path "C:\path\to\your\renamed" -Target "C:\path\to\original"
 
 # Istall fonts
 Write-Host "Installing fonts"
