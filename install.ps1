@@ -1,4 +1,5 @@
-#
+#Requires -RunAsAdministrator
+
 #
 #
 #
@@ -13,6 +14,7 @@ $global:GIT_DIR = git rev-parse --show-toplevel
 $global:CONFIG_DIR = $GIT_DIR+"/config"
 $global:ASSETS_DIR = $GIT_DIR+"/assets"
 $global:SCRIPTS_DIR = $GIT_DIR+"/scripts"
+$global:USERNAME = $env:UserName
 
 # Insall dependencies
 function Dotfiles-Dep {
@@ -33,6 +35,10 @@ function Dotfiles-Dep {
   }
 }
 
+# Istall fonts
+Write-Host "Installing fonts"
+elevate .$SCRIPTS_DIR/windows/install-fonts.ps1 "$ASSETS_DIR/shared/fonts"
+
 # Start script
 if (!($SkipDep)) {
   Dotfiles-Dep
@@ -52,12 +58,9 @@ if (!(Test-Path $PROFILE)) {
 }
 
 New-Item -Path "$PROFILE" -ItemType File -Force -Value "$profile_value"
+New-Item -ItemType SymbolicLink -Path "C:Users/$USERNAME/AppData/Local/nvim/init.lua" -Target "$CONFIG_DIR/shared/nvim/init.lua" -Force
 
 #Copy-Item ".\power-shell\profile.ps1" -Destination "$PROFILE" -Force
 #Copy-Item ".\starship\starship.toml" -Destination "$env:USERPROFILE\.config\starship.toml" -Force
-#New-Item -ItemType SymbolicLink -Path "C:\path\to\your\renamed" -Target "C:\path\to\original"
 
-# Istall fonts
-Write-Host "Installing fonts"
-.$SCRIPTS_DIR/windows/install-fonts.ps1 "$ASSETS_DIR/shared/fonts"
 

@@ -2,7 +2,6 @@
 $FONTS = 0x14
 $objShell = New-Object -ComObject Shell.Application
 $objFolder = $objShell.Namespace($FONTS)
-$username = $env:UserName
 
 # # Loop through provided input directories
 
@@ -24,7 +23,7 @@ for ($i = 0; $i -lt $args.count; $i++)
         if(!($file.name -match "pfb$"))
         {
             $try = $true
-            $installedFonts = @(Get-ChildItem C:\Users\$username\AppData\Local\Microsoft\Windows\Fonts | Where-Object {$_.PSIsContainer -eq $false} | Select-Object basename)
+            $installedFonts = @(Get-ChildItem C:\Users\$USERNAME\AppData\Local\Microsoft\Windows\Fonts | Where-Object {$_.PSIsContainer -eq $false} | Select-Object basename)
         
             foreach($font in $installedFonts)
             {
