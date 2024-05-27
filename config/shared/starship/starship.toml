@@ -6,15 +6,25 @@ palette = "catppuccin_latte"
 
 # Replace the '❯' 
 [character]
-# Note the use of Catppuccin color 'maroon'
 success_symbol = "[[󱚤](green) ❯](mauve)"
-error_symbol = "[❯](red)"
-vimcmd_symbol = "[❮](green)"
+error_symbol = "[[󱚢](red) ❯](mauve)"
+vimcmd_symbol = "[[󱚦](green) ❮](mauve)"
 
 [directory]
 truncation_length = 4
-# Catppuccin 'lavender'
 style = "bold lavender"
+
+[git_status]
+deleted = 'x'
+#deleted = ''
+#modified = ''
+#untracked = ''
+#ahead = '⇡'
+#behind = '⇣'
+#diverged = '⇕'
+#conflicted = '='
+#renamed = ''
+#staged = '+'
 
 # palette tables should be last in the config ⚓️
 [palettes.catppuccin_macchiato]

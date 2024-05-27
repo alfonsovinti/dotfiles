@@ -3,7 +3,6 @@
 #
 #
 
-
 # Params
 param (
   [switch]$SkipDep
@@ -11,38 +10,53 @@ param (
 
 # Variables setup
 $global:GIT_DIR = git rev-parse --show-toplevel
-$global:DOTS_DIR = $GIT_DIR+"/dots"
+$global:CONFIG_DIR = $GIT_DIR+"/config"
+$global:ASSETS_DIR = $GIT_DIR+"/assets"
 $global:SCRIPTS_DIR = $GIT_DIR+"/scripts"
 
 # Insall dependencies
 function Dotfiles-Dep {
-  winget list -q Microsoft.Powershell | Out-Null
-  if ($?) {  echo "Powershell installed!" } else { winget install --id Microsoft.Powershell --source winget }
+  $dep_list = @(
+    'Microsoft.Powershell'
+    'Neovim.Neovim'
+    'Starship.Starship'
+  )
 
-  winget list -q Neovim.Neovim | Out-Null
-  if ($?) {  echo "Neovim installed!" } else { winget install --id Neovim.Neovim --source winget }
-
-  winget list -q Starship.Starship | Out-Null
-  if ($?) {  echo "Starship installed!" } else { winget install --id Starship.Starship --source winget }
+  foreach($dep in $dep_list) {
+    winget list -q $dep | Out-Null
+    if ($?) {  
+      Write-Warning "$dep installed!"
+    } else {
+      Write-Host "Installing $dep..."
+      winget install --id $dep --source winget
+    }
+  }
 }
 
 # Start script
-
 if (!($SkipDep)) {
   Dotfiles-Dep
 } 
 
-#if (!(Test-Path $PROFILE)) {
-#  Write-Warning "$PROFILE not exist!"
-#  New-Item -Path "$PROFILE" -Type "File" -Force
-#}
+$OFS = "`r`n"
+$profile_value = @(
+  ". $CONFIG_DIR/windows/power-shell/profile.ps1"
+  '$ENV:STARSHIP_CONFIG="'+"$CONFIG_DIR/shared/starship/starship.toml"+'"'
+)
+$profile_value -join "$OFS"
 
+if (!(Test-Path $PROFILE)) {
+  Write-Host "Make $PROFILE"
+} else {
+  Write-Warning "Override $PROFILE"
+}
 
-New-Item -Path "$PROFILE" -ItemType File -Force -Value ". $global:GIT_DIR/power-shell/profile.ps1"
+New-Item -Path "$PROFILE" -ItemType File -Force -Value "$profile_value"
 
 #Copy-Item ".\power-shell\profile.ps1" -Destination "$PROFILE" -Force
 #Copy-Item ".\starship\starship.toml" -Destination "$env:USERPROFILE\.config\starship.toml" -Force
 
-
-
+# Istall fonts
+Write-Host "Installing fonts"
+.$SCRIPTS_DIR/windows/install-fonts.ps1 "$ASSETS_DIR/shared/fonts"
 
