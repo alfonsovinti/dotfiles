@@ -51,7 +51,7 @@ $global:OFS = "`r`n"
 
 # Insall dependencies
 $dep_list = @(
-  'MSYS2.MSYS2'
+  'zig.zig'
   'Git.Git'
   'Neovim.Neovim'
   'Starship.Starship'
