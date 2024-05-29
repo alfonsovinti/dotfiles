@@ -51,23 +51,24 @@ $global:OFS = "`r`n"
 
 # Insall dependencies
 $dep_list = @(
-  'zig.zig'
-  'Git.Git'
-  'Neovim.Neovim'
-  'Starship.Starship'
-  'BurntSushi.ripgrep.MSVC'
-  'fzf'
-  'LLVM.LLVM'
+    'zig.zig'
+    'Git.Git'
+    'Neovim.Neovim'
+    'Starship.Starship'
+    'BurntSushi.ripgrep.MSVC'
+    'junegunn.fzf'
+    'sharkdp.fd'
+    'LLVM.LLVM'
 )
 
 foreach($dep in $dep_list) {
-  winget list -q $dep | Out-Null
-  if ($?) {  
-    Write-Warning "$dep installed!"
-  } else {
-    write-output "Installing $dep..."
-    winget install --id $dep --source winget
-  }
+        winget list -q $dep | Out-Null
+    if ($?) {  
+        Write-Warning "$dep installed!"
+    } else {
+        write-output "Installing $dep..."
+        winget install --id $dep --source winget
+    }
 }
 
 # Istall fonts
@@ -76,16 +77,16 @@ Write-Host "Installing fonts"
 
 # install config
 $profile_value = @(
-  ". $CONFIG_DIR/windows/power-shell/profile.ps1"
-  '$ENV:STARSHIP_CONFIG="'+"$CONFIG_DIR/shared/starship/starship.toml"+'"'
+    ". $CONFIG_DIR/windows/power-shell/profile.ps1"
+    '$ENV:STARSHIP_CONFIG="'+"$CONFIG_DIR/shared/starship/starship.toml"+'"'
 )
 # ToDo suppress output
 $profile_value -join "$OFS"
 
 if (!(Test-Path $PROFILE)) {
-  Write-Host "Make $PROFILE"
+    Write-Host "Make $PROFILE"
 } else {
-  Write-Warning "Override $PROFILE"
+    Write-Warning "Override $PROFILE"
 }
 
 New-Item -Path "$PROFILE" -ItemType File -Force -Value "$profile_value"
