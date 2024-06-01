@@ -8,16 +8,16 @@
 #  /   /  \\  \\\   /
 # (___/    \___)\__/
 #
-# debia-de-install.sh
+# add-de.sh
 
 set -e
 
-sudo apt-get update && sudo apt-get upgrade
+#sudo apt-get update && sudo apt-get upgrade
 
 #
-sudo apt-get purge python3-pip && sudo apt-get install --install-recommends python3-pip
+#sudo apt-get purge python3-pip && sudo apt-get install --install-recommends python3-pip
 
-sudo apt-get purge compton
+#sudo apt-get purge compton
 #sudo apt-get install xorg picom dunst feh ranger rofi
 # sxhkd
 # jgmenu
@@ -59,8 +59,8 @@ sudo apt-get purge compton
 # xfce4-settings
 # xfce4-power-manager
 # thunar
-sudo apt-get install --no-install-recommends xfce4-session xfce4-power-manager librsvg2-common
-sudo apt-get install --install-recommends xfce4-settings upower systemd-sysv light-locker thunar thunar-volman thunar-archive-plugin thunar-media-tags-plugin
+#sudo apt-get install --no-install-recommends xfce4-session xfce4-power-manager librsvg2-common
+#sudo apt-get install --install-recommends xfce4-settings upower systemd-sysv light-locker thunar thunar-volman thunar-archive-plugin thunar-media-tags-plugin
 
 #
-sudo apt-get install --no-install-recommends dunst
+#sudo apt-get install --no-install-recommends dunst
