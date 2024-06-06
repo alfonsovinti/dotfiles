@@ -110,9 +110,14 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'" # set bat as manpager
 
 
 # Alias
-alias ll='ls -l'
-alias la='ls -A'
-alias l='ls -CF'
+alias lh='ls --group-directories-first -h'
+alias ll='lh -lF'
+alias lla='lh -lAF'
+alias la='lh -AF'
+alias laa='lh -aF'
+alias l='lh -CF'
+alias c='clear'
+alias lrc='exec bash'
 
 # Load loca aliases from ~/.bash_aliases.
 if [ -f ~/.bash_aliases ]; then
@@ -129,3 +134,5 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+eval "$(starship init bash)"

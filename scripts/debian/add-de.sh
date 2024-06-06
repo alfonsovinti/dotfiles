@@ -10,7 +10,11 @@
 #
 # add-de.sh
 
-set -e
+# xorg display server installation
+sudo apt install -y xorg xserver-xorg xbacklight xbindkeys xvkbd xinput
+
+
+
 
 #sudo apt-get update && sudo apt-get upgrade
 
