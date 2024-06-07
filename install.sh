@@ -45,23 +45,25 @@ function dtfn_prompt () {
 }
 
 # Update system
-dtfn_prompt "Upadate system?" true && sudo apt update && sudo apt upgrade
+dtfn_prompt "Upadate system?" false && sudo apt update && sudo apt upgrade
 
 # Install pkg
 dtfn_prompt "Install required?" true && {
-	sudo apt install podman curl wget git htop iftop iotop neofetch
+    sudo apt install podman curl wget htop iftop iotop neofetch exa bat tmux man-db manpages manpages-it
+    curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 }
 
 # Install distrobox
 dtfn_prompt "Install/update distrobox?" false && {
-	wget -qO- https://raw.githubusercontent.com/89luca89/distrobox/main/install | sudo sh
-	dtfn_prompt "Install/refresh devbox?" false && distrobox assemble create --file "$CONFIG_DIR/debian/distrobox/distrobox.ini" 
+    wget -qO- https://raw.githubusercontent.com/89luca89/distrobox/main/install | sudo sh
+    dtfn_prompt "Install/refresh devbox?" false && distrobox assemble create --file "$CONFIG_DIR/debian/distrobox/distrobox.ini" 
 }
 
 # Install fonts
 dtfn_prompt "Install fonts?" true && {
     mkdir -p $HOME/.local/share/fonts
-    cp -rf "$ASSETS_DIR/shared/fonts/"*.ttf "$HOME/.local/share/fonts"
+    cp -rf $ASSETS_DIR/shared/fonts/*.ttf $HOME/.local/share/fonts
     fc-cache -f -v
 }
 

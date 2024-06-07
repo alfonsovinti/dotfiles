@@ -105,9 +105,19 @@ export EDITOR="nvim" # in terminal
 export VISUAL="nvim" # GUI mode
 
 # Manpage most readable
-#export MANPAGER="nvim -c 'set ft=man' -" # set neovim as manpager
-export MANPAGER="sh -c 'col -bx | bat -l man -p'" # set bat as manpager
+export MANPAGER="nvim -c 'set ft=man' -" # set neovim as manpager
 
+# Set bat alias
+if [ -x /usr/bin/batcat ]; then
+    alias bat='batcat'
+    # Manpage most readable
+    export BAT_PAGER="less"
+    export MANPAGER="sh -c 'col -bx | batcat -l man -p'" # set bat as manpager
+fi
+
+# Set 
+alias exa="exa --icons --git -lha --group-directories-first"
+alias lx="exa"
 
 # Alias
 alias lh='ls --group-directories-first -h'
