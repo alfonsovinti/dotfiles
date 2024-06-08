@@ -89,6 +89,8 @@ if [ -x /usr/bin/dircolors ]; then
     alias ls='ls --color=auto'
     alias dir='dir --color=auto'
     alias vdir='vdir --color=auto'
+    # Colorize grep output (good for log files)
+    alias g="grep -i --color=auto"
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
@@ -115,19 +117,79 @@ if [ -x /usr/bin/batcat ]; then
     export MANPAGER="sh -c 'col -bx | batcat -l man -p'" # set bat as manpager
 fi
 
-# Set 
-alias exa="exa --icons --git -lha --group-directories-first"
-alias lx="exa"
-
 # Alias
-alias lh='ls --group-directories-first -h'
-alias ll='lh -lF'
-alias lla='lh -lAF'
-alias la='lh -AF'
-alias laa='lh -aF'
-alias l='lh -CF'
-alias c='clear'
 alias lrc='exec bash'
+alias c="clear"
+alias e="$EDITOR"
+alias se="sudo $EDITOR"
+
+alias l='ls --group-directories-first -hlACF'
+alias ll='ls --group-directories-first -hlF'
+alias la='ls --group-directories-first -haF'
+
+# Changing "ls" to "exa"
+if [ -x /usr/bin/exa ]; then
+    alias l="exa -al --color=always --group-directories-first" # my preferred listing
+    alias li="exa -ahl --color=always --group-directories-first --icons"
+    alias lg="exa -ahl --color=always --group-directories-first --git"
+    alias ls="exa --color=always --group-directories-first --icons"
+    alias la="exa -a --color=always --group-directories-first --icons" # all files and dirs
+    alias ll="exa -l --color=always --group-directories-first" # long format
+    alias lt="exa -aT --color=always --group-directories-first" # tree listing
+    alias l.="exa -a | egrep \"^\.\""
+fi
+
+# navigation
+alias ..="cd .."
+alias ...="cd ../.."
+alias .3="cd ../../.."
+alias .4="cd ../../../.."
+alias .5="cd ../../../../.."
+
+# confirm before overwriting something
+alias cp="cp -i"
+alias mv="mv -i"
+alias rm="rm -i"
+
+# adding flags
+alias df="df -h"        # human-readable sizes
+alias free="free -m"    # show sizes in MB
+
+# get top process eating memory
+alias psmem="ps auxf | sort -nr -k 4"
+alias psmem10="ps auxf | sort -nr -k 4 | head -10"
+
+# get top process eating cpu ##
+alias pscpu="ps auxf | sort -nr -k 3"
+alias pscpu10="ps auxf | sort -nr -k 3 | head -10"
+
+# merge .Xresources
+alias xmerge="xrdb -merge ~/.Xresources"
+
+# git
+alias gaddup="git add -u"
+alias gaddall="git add ."
+alias gadd="git add"
+alias gbranch="git branch"
+alias gcheckout="git checkout"
+alias gclone="git clone"
+alias gcommit="git commit -m"
+alias gfetch="git fetch"
+alias gpull="git pull"
+alias gpush="git push origin"
+alias gpushmain="git push origin main"
+alias gstatus="git status"
+alias gdiff="git diff"
+alias gtag="git tag"
+alias gnewtag="git tag -a"
+
+# get error messages from journalctl
+alias jctl="journalctl -p 3 -xb"
+
+# switch between shells
+alias tobash="sudo chsh $USER -s /bin/bash && echo \"Need log out.\""
+alias tozsh="sudo chsh $USER -s /bin/zsh && echo \"Need log out.\""
+alias tofish="sudo chsh $USER -s /bin/fish && echo \"Need log out.\""
 
 # Load loca aliases from ~/.bash_aliases.
 if [ -f ~/.bash_aliases ]; then

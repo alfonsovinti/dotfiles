@@ -25,3 +25,7 @@
 
 ## ToDo
   - [] Add Konorebi (https://github.com/LGUG2Z/komorebi)
+
+## DE 
+  - labwc (Wayland)
+  - Opengox (X11)
