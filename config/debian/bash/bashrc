@@ -25,9 +25,10 @@ shopt -s checkwinsize
 #shopt -s globstar
 
 # Set vi mode
-set -o vi
-bind -m vi-command 'Control-l: clear-screen'
-bind -m vi-insert 'Control-l: clear-screen'
+#set -o vi
+#bind -m vi-command 'Control-l: clear-screen'
+#bind -m vi-insert 'Control-l: clear-screen'
+# NOTE set in .inputrc
 
 # Change to named directory
 shopt -s autocd 
