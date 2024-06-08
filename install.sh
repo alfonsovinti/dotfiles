@@ -49,7 +49,7 @@ dtfn_prompt "Upadate system?" false && sudo apt update && sudo apt upgrade
 
 # Install pkg
 dtfn_prompt "Install required?" true && {
-    sudo apt install podman curl wget htop iftop iotop neofetch exa bat tmux man-db manpages manpages-it
+    sudo apt install podman curl wget htop iftop iotop neofetch exa bat tmux man-db manpages manpages-it bash-completion
     curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 }
