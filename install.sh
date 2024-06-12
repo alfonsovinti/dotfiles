@@ -60,6 +60,11 @@ dtfn_prompt "Install/update distrobox?" false && {
     dtfn_prompt "Install/refresh devbox?" false && distrobox assemble create --file "$CONFIG_DIR/debian/distrobox/distrobox.ini" 
 }
 
+# Install DE
+dtfn_prompt "Install DE?" false && {
+    . $SCRIPTS_DIR/debian/add-de.sh
+}
+
 # Install fonts
 dtfn_prompt "Install fonts?" true && {
     mkdir -p $HOME/.local/share/fonts

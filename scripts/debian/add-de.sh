@@ -13,19 +13,39 @@
 # xorg display server installation
 sudo apt install -y xorg xserver-xorg xbacklight xbindkeys xvkbd xinput
 
+# Add build-essential
+sudo apt install -y build-essential
 
+# Create folders in user directory
+xdg-user-dirs-update
 
+# Add window manager
+sudo apt install -y openbox
 
-#sudo apt-get update && sudo apt-get upgrade
+# Add display manager
+sudo apt install -y lightdm
+sudo systemctl enable lightdm
 
-#
-#sudo apt-get purge python3-pip && sudo apt-get install --install-recommends python3-pip
+# Network files tools and system events
+sudo apt install -y dialog mtools dosfstools avahi-daemon acpi acpid gvfs-backends xfce4-power-manager
+sudo systemctl enable avahi-daemon
+sudo systemctl enable acpid
 
-#sudo apt-get purge compton
-#sudo apt-get install xorg picom dunst feh ranger rofi
-# sxhkd
-# jgmenu
+# Networking
+sudo apt install -y lxpolkit network-manager network-manager-gnome 
 
+# File explorer
+
+# Terminal
+curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+
+# Sound
+sudo apt install -y pipewire pavucontrol pamixer
+
+# Add others
+sudo apt install -y picom dunst libnotify-bin libnotify-dev feh rofi unzip
+
+# ranger
 # cheese
 # conky conky-manager (to make)
 # galculator
