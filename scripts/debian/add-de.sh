@@ -50,7 +50,7 @@ echo 'kitty.desktop' > ~/.config/xdg-terminals.list
 sudo apt install -y pipewire pavucontrol pamixer
 
 # Add others
-sudo apt install -y picom dunst libnotify-bin libnotify-dev feh rofi unzip
+sudo apt install -y picom dunst libnotify-bin libnotify-dev feh rofi unzip polybar
 
 # ranger
 # cheese
