@@ -29,3 +29,9 @@
 ## DE 
   - labwc (Wayland)
   - Opengox (X11)
+  ref:
+    - https://packages.debian.org/bookworm/task-lxde-desktop
+    - https://packages.debian.org/bookworm/task-desktop
+    - https://packages.debian.org/bookworm/xorg
+    - https://packages.debian.org/bookworm/lxde
+    - https://packages.debian.org/bookworm/lxde-core
