@@ -9,7 +9,10 @@ ln -sf $CONFIG_DIR/shared/tmux/tmux.conf $HOME/.tmux.conf
 
 ln -sf $CONFIG_DIR/debian/bash/bashrc $HOME/.bashrc
 ln -sf $CONFIG_DIR/debian/misc/inputrc $HOME/.inputrc
+
+# polybar
 ln -sf $CONFIG_DIR/debian/polybar/config.ini $HOME/.config/polybar/config.ini
+ln -sf $CONFIG_DIR/debian/polybar/themes/mocha.ini $HOME/.config/polybar/theme.ini
 
 # openbox
 ln -sf $CONFIG_DIR/debian/openbox/rc.xml $HOME/.config/openbox/rc.xml
