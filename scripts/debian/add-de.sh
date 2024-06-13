@@ -11,16 +11,17 @@
 # add-de.sh
 
 # xorg display server installation
-sudo apt install -y xorg xserver-xorg xbacklight xbindkeys xvkbd xinput
+sudo apt install -y xorg xbacklight xbindkeys xvkbd xinput
 
 # Add build-essential
 sudo apt install -y build-essential
 
+# Microcode for Intel/AMD 
+#sudo apt install -y amd64-microcode
+#sudo apt install -y intel-microcode 
+
 # Create folders in user directory
 xdg-user-dirs-update
-
-# Add window manager
-sudo apt install -y openbox
 
 # Add display manager
 sudo apt install -y lightdm
@@ -37,6 +38,9 @@ sudo apt install -y lxpolkit network-manager network-manager-gnome
 # File explorer
 sudo apt install -y pcmanfm
 
+# Openbox packages
+sudo apt install -y openbox lxrandr lxappearance-obconf lxinput
+
 # Terminal
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 ln -sf ~/.local/kitty.app/bin/kitty ~/.local/kitty.app/bin/kitten ~/.local/bin/
@@ -50,7 +54,7 @@ echo 'kitty.desktop' > ~/.config/xdg-terminals.list
 sudo apt install -y pipewire pavucontrol pamixer
 
 # Add others
-sudo apt install -y picom dunst libnotify-bin libnotify-dev feh rofi unzip polybar
+sudo apt install -y picom dunst libnotify-bin libnotify-dev feh rofi unzip polybar scrot
 
 # ranger
 # cheese

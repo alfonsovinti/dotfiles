@@ -1,0 +1,16 @@
+#
+# These things are run when an Openbox X Session is started.
+#
+
+#feh --bg-scale /path/to/image.file &
+xfce4-power-manager &
+dunst &
+polybar -q &
+#picom --config $HOME/.config/picom/picom.conf &
+#audacious &
+#lxterminal &
+#nm-applet &
+#blueman-applet &
+#clipit
+lxpolkit
+
