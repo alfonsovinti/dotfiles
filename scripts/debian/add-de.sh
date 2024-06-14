@@ -39,7 +39,7 @@ sudo apt install -y lxpolkit network-manager network-manager-gnome
 sudo apt install -y pcmanfm
 
 # Openbox packages
-sudo apt install -y openbox lxrandr lxappearance-obconf lxinput lxterminal
+sudo apt install -y openbox lxrandr lxappearance lxappearance-obconf lxinput lxterminal
 
 # Sound
 sudo apt install -y pipewire pavucontrol pamixer
