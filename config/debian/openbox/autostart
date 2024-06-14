@@ -1,16 +1,56 @@
-#
-# These things are run when an Openbox X Session is started.
-#
+## Openbox autostart.sh
+## ====================
+## When you login to your Openbox session, this autostart script will be
+## executed to set-up your environment and launch any applications you
+## want to run at startup.
+##
+## Note*: some programs, such as 'nm-applet' are run via XDG autostart.
+## Run '/usr/lib/openbox/openbox-xdg-autostart --list' to list any
+## XDG autostarted programs.
+##
+## More information about this can be found at:
+## http://openbox.org/wiki/Help:Autostart
+##
+
+# Start LX PolicyKit
+lxpolkit &
 
 #feh --bg-scale /path/to/image.file &
-xfce4-power-manager &
-dunst &
-polybar -q &
-#picom --config $HOME/.config/picom/picom.conf &
-#audacious &
-#lxterminal &
-#nm-applet &
-#blueman-applet &
-#clipit
-lxpolkit
+nitrogen --restore &
 
+# Start picom
+#picom --config $HOME/.config/picom/picom.conf &
+
+# Start bars
+#tint2 &
+polybar -q &
+
+# Start nm-applet
+#nm-applet &
+
+#audacious &
+
+#blueman-applet &
+
+dunst &
+xfce4-power-manager &
+
+# Start xscreensaver
+xscreensaver -no-splash &
+
+## Start Clipboard manager
+#(sleep 3s && parcellite) &
+#clipit
+
+# Set keyboard settings - 250 ms delay and 25 cps (characters per second) repeat rate.
+# Adjust the values according to your preferances.
+#xset r rate 250 25 &
+
+# Turn on/off system beep
+xset b off &
+
+## Run the conky
+conky -q &
+
+# Hacks for notifyd since it switched to systemd
+#/usr/lib/*/xfce4/notifyd/xfce4-notifyd &

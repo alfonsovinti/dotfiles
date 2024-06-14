@@ -6,11 +6,14 @@
                 file:///usr/share/openbox/menu.xsd">
 
 <menu id="root-menu" label="Openbox 3">
-  <item label="Terminal emulator">
+  <item label="Terminal">
     <action name="Execute"><execute>x-terminal-emulator</execute></action>
   </item>
   <item label="Web browser">
     <action name="Execute"><execute>x-www-browser</execute></action>
+  </item>
+  <item label="File manager">
+    <action name="Execute"><execute>pcmanfm</execute></action>
   </item>
   <!-- This requires the presence of the 'obamenu' package to work -->
   <menu id="/Debian" />

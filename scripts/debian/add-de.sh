@@ -11,7 +11,7 @@
 # add-de.sh
 
 # xorg display server installation
-sudo apt install -y xorg xbacklight xbindkeys xvkbd xinput
+sudo apt install -y xorg xbacklight xbindkeys xvkbd xinput xscreensaver
 
 # Add build-essential
 sudo apt install -y build-essential
@@ -45,11 +45,12 @@ sudo apt install -y openbox lxrandr lxappearance lxappearance-obconf lxinput lxt
 sudo apt install -y pipewire pavucontrol pamixer
 
 # Add others
-sudo apt install -y picom dunst libnotify-bin libnotify-dev feh rofi unzip polybar scrot
+sudo apt install -y picom dunst libnotify-bin libnotify-dev feh nitrogen rofi unzip polybar scrot conky
+# onky-manager (to make)
 
+# ---------------
 # ranger
 # cheese
-# conky conky-manager (to make)
 # galculator
 # geany
 # gimp
