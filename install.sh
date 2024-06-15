@@ -64,6 +64,7 @@ dtfn_prompt "Install/update distrobox?" false && {
 dtfn_prompt "Install DE?" false && {
     . $SCRIPTS_DIR/debian/add-de.sh
     sudo apt autoremove
+    feh --bg-scale $ASSETS_DIR/shared/wallpapers/wallpaper-mocha.jpg
 }
 
 # Install fonts
