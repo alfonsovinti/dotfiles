@@ -50,7 +50,7 @@ sudo apt install -y pipewire pavucontrol pamixer
 sudo apt install -y engrampa p7zip-full p7zip-rar rar unrar unzip unace bzip2
 
 # Add others
-sudo apt install -y picom dunst libnotify-bin libnotify-dev feh rofi polybar scrot conky parcellite numlockx galculator
+sudo apt install -y picom dunst libnotify-bin libnotify-dev feh rofi polybar scrot conky parcellite numlockx galculator papirus-icon-theme
 # conky-manager (to make)
 
 # ---------------
