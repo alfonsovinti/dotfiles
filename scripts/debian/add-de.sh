@@ -24,7 +24,7 @@ sudo apt install -y build-essential
 xdg-user-dirs-update
 
 # Add display manager
-sudo apt install -y lightdm
+sudo apt install -y lightdm light-locker
 sudo systemctl enable lightdm
 
 # Network files tools and system events
@@ -36,17 +36,20 @@ sudo systemctl enable acpid
 sudo apt install -y lxpolkit network-manager network-manager-gnome 
 
 # File explorer
-sudo apt install -y pcmanfm
+sudo apt install -y pcmanfm tumbler
 
 # Openbox packages
-sudo apt install -y openbox lxrandr lxappearance lxappearance-obconf lxinput lxterminal
+sudo apt install -y openbox menu lxrandr lxappearance lxappearance-obconf lxinput lxterminal
 
 # Sound
 sudo apt install -y pipewire pavucontrol pamixer
 
+# File archiver
+sudo apt install -y engrampa p7zip-full p7zip-rar rar unrar unzip unace bzip2
+
 # Add others
-sudo apt install -y picom dunst libnotify-bin libnotify-dev feh nitrogen rofi unzip polybar scrot conky
-# onky-manager (to make)
+sudo apt install -y picom dunst libnotify-bin libnotify-dev feh rofi polybar scrot conky parcellite numlockx galculator
+# conky-manager (to make)
 
 # ---------------
 # ranger

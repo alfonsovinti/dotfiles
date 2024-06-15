@@ -15,8 +15,9 @@
 # Start LX PolicyKit
 lxpolkit &
 
-#feh --bg-scale /path/to/image.file &
-nitrogen --restore &
+# Wallpaper
+eval `cat $HOME/.fehbg` &
+#nitrogen --restore &
 
 # Start picom
 #picom --config $HOME/.config/picom/picom.conf &
@@ -39,8 +40,7 @@ xfce4-power-manager &
 xscreensaver -no-splash &
 
 ## Start Clipboard manager
-#(sleep 3s && parcellite) &
-#clipit
+(sleep 3s && parcellite) &
 
 # Set keyboard settings - 250 ms delay and 25 cps (characters per second) repeat rate.
 # Adjust the values according to your preferances.
