@@ -63,6 +63,7 @@ dtfn_prompt "Install/update distrobox?" false && {
 # Install DE
 dtfn_prompt "Install DE?" false && {
     . $SCRIPTS_DIR/debian/add-de.sh
+    sudo apt autoremove
 }
 
 # Install fonts
