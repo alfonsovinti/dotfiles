@@ -65,6 +65,7 @@ dtfn_prompt "Install DE?" false && {
     . $SCRIPTS_DIR/debian/add-de.sh
     sudo apt autoremove
     feh --bg-scale $ASSETS_DIR/shared/wallpapers/wallpaper-mocha.jpg
+    sudo cp -f $CONFIG_DIR/debian/lxdm/lxdm.conf /etc/lxdm/lxdm.conf
 }
 
 # Install fonts
