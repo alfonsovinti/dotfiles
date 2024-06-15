@@ -26,11 +26,8 @@ xdg-user-dirs-update
 # Add display manager
 sudo apt install -y lxdm
 sudo systemctl enable lxdm
-# TODO renive lightdm
-#sudo apt install -y lightdm light-locker
-#sudo systemctl enable lightdm
-#sudo apt remove lightdm light-locker
-#-> sudo apt purge lightdm light-locker
+# TODO remove lightdm
+#sudo apt purge lightdm light-locker
 
 # Network files tools and system events
 sudo apt install -y dialog mtools dosfstools avahi-daemon acpi acpid gvfs-backends xfce4-power-manager
