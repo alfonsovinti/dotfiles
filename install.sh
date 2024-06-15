@@ -66,6 +66,18 @@ dtfn_prompt "Install DE?" false && {
     sudo apt autoremove
     feh --bg-scale $ASSETS_DIR/shared/wallpapers/wallpaper-mocha.jpg
     sudo cp -f $CONFIG_DIR/debian/lxdm/lxdm.conf /etc/lxdm/lxdm.conf
+    mkdir -p $HOME/.icons
+    cd $HOME/.icons
+    curl -LOsS https://github.com/catppuccin/cursors/releases/download/v0.3.1/catppuccin-mocha-light-cursors.zip
+    unzip catppuccin-frappe-blue-cursors.zip
+    rm -f catppuccin-frappe-blue-cursors.zip
+    cd $GIT_DIR
+    mkdir -p $HOME/.themes
+    cd $HOME/.themes
+    git clone https://github.com/catppuccin/openbox.git
+    cp -rn $HOME/.themes/openbox/Catppuccin-Mocha $HOME/.themes/
+    rm -rf $HOME/.themes/openbox
+    cd $GIT_DIR
 }
 
 # Install fonts
