@@ -19,4 +19,5 @@ ln -sf $CONFIG_DIR/debian/openbox/rc.xml $HOME/.config/openbox/rc.xml
 ln -sf $CONFIG_DIR/debian/openbox/menu.xml $HOME/.config/openbox/menu.xml
 ln -sf $CONFIG_DIR/debian/openbox/environment $HOME/.config/openbox/environment
 ln -sf $CONFIG_DIR/debian/openbox/autostart $HOME/.config/openbox/autostart
+sudo ln -sf $RESOURCES_DIR/debian/bin/ob-exit /usr/bin
 

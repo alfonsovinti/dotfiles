@@ -7,6 +7,7 @@ set -euo pipefail
 readonly GIT_DIR=$(git rev-parse --show-toplevel)
 readonly CONFIG_DIR="$GIT_DIR/config"
 readonly ASSETS_DIR="$GIT_DIR/assets"
+readonly RESOURCES_DIR="$GIT_DIR/resources"
 readonly SCRIPTS_DIR="$GIT_DIR/scripts"
 readonly OFS="\n"
 
