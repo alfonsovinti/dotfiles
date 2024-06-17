@@ -3,6 +3,7 @@ mkdir -p $HOME/.config
 mkdir -p $HOME/.config/nvim
 mkdir -p $HOME/.config/polybar
 mkdir -p $HOME/.config/openbox
+mkdir -p $HOME/.config/conky
 
 ln -sf $CONFIG_DIR/shared/starship/starship.toml $HOME/.config/starship.toml
 ln -sf $CONFIG_DIR/shared/tmux/tmux.conf $HOME/.tmux.conf
