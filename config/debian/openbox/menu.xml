@@ -35,7 +35,7 @@
         <execute>xscreensaver-command -lock</execute>
       </action>
     </item>
-    <menu execute="cat $HOME/.config/openbox/menu.systemd.xml" id="exit-menu" label="Exit" >
+    <menu execute="cat ~/.config/openbox/menu.systemd.xml" id="exit-menu" label="Exit" >
   </menu>
 
 </openbox_menu>
