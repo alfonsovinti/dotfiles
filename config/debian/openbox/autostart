@@ -16,8 +16,7 @@
 lxpolkit &
 
 # Wallpaper
-eval `cat $HOME/.fehbg` &
-#nitrogen --restore &
+nitrogen --restore &
 
 # Start picom
 #picom --config $HOME/.config/picom/picom.conf &

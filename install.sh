@@ -64,13 +64,16 @@ dtfn_prompt "Install/update distrobox?" false && {
 dtfn_prompt "Install DE?" false && {
     . $SCRIPTS_DIR/debian/add-de.sh
     sudo apt autoremove
-    feh --bg-scale $ASSETS_DIR/shared/wallpapers/wallpaper-mocha.jpg
     sudo cp -f $CONFIG_DIR/debian/lxdm/lxdm.conf /etc/lxdm/lxdm.conf
+}
+
+
+dtfn_prompt "Install theme?" false && {
     mkdir -p $HOME/.icons
     cd $HOME/.icons
     curl -LOsS https://github.com/catppuccin/cursors/releases/download/v0.3.1/catppuccin-mocha-light-cursors.zip
-    unzip catppuccin-frappe-blue-cursors.zip
-    rm -f catppuccin-frappe-blue-cursors.zip
+    unzip catppuccin-mocha-light-cursors.zip
+    rm -f catppuccin-mocha-light-cursors.zip
     cd $GIT_DIR
     mkdir -p $HOME/.themes
     cd $HOME/.themes
