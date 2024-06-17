@@ -15,9 +15,9 @@
   <item label="File manager">
     <action name="Execute"><execute>pcmanfm</execute></action>
   </item>
-  <!-- This requires the presence of the 'obamenu' package to work -->
-  <menu id="/Debian" />
   <separator />
+  <menu id="/Debian" />
+  <!-- This requires the presence of the 'obamenu' package to work -->
   <menu id="applications-menu" label="Applications" execute="/usr/bin/obamenu"/>
   <separator />
   <item label="ObConf">
@@ -30,9 +30,16 @@
     <action name="Restart" />
   </item>
   <separator />
-  <item label="Exit">
-    <action name="Exit" />
-  </item>
+    <item label="Lock Screen">
+      <action name="Execute">
+        <execute>xscreensaver-command -lock</execute>
+      </action>
+    </item>
+    <item label="Exit">
+      <action name="Execute">
+        <execute>ob-exit</execute>
+      </action>
+    </item>
 </menu>
 
 </openbox_menu>
