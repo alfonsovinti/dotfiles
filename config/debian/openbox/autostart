@@ -15,6 +15,12 @@
 # Start LX PolicyKit
 lxpolkit &
 
+#Screen restpre
+if [ -f "$HOME/.config/autostart/lxrandr-autostart.desktop" ]; then
+    sed -n 's/^Exec=//p' $HOME/.config/autostart/lxrandr-autostart.desktop | sh
+fi
+
+
 # Wallpaper
 nitrogen --restore &
 
