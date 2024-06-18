@@ -56,7 +56,7 @@ dtfn_prompt "Upadate system?" false && sudo apt update && sudo apt upgrade
 dtfn_prompt "Install required?" true && {
     sudo apt install podman curl wget htop iftop iotop neofetch exa bat tmux man-db manpages manpages-it bash-completion
     curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
-    if [ ! -d "~/.tmux/plugins/tpm" ]; then
+    if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
         git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
     fi
     . $SCRIPTS_DIR/debian/add-neovim.sh
