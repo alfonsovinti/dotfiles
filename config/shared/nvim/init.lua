@@ -161,16 +161,16 @@ require("lazy").setup({
 	-- "gc" to comment visual regions/lines
 	{ "numToStr/Comment.nvim", opts = {} },
 
-  -- 
-	{ 
-    "preservim/vimux",
-    keys = {
-      { "<leader>vp", ":VimuxPromptCommand<CR>" },
-      { "<leader>vl", ":VimuxRunLastCommand<CR>" },
-      { "<leader>vi", ":VimuxInspectRunner<CR>" },
-      { "<leader>vz", ":VimuxZoomRunner<CR>" },
-    }
-  },
+	--
+	{
+		"preservim/vimux",
+		keys = {
+			{ "<leader>vp", ":VimuxPromptCommand<CR>" },
+			{ "<leader>vl", ":VimuxRunLastCommand<CR>" },
+			{ "<leader>vi", ":VimuxInspectRunner<CR>" },
+			{ "<leader>vz", ":VimuxZoomRunner<CR>" },
+		},
+	},
 
 	-- Here is a more advanced example where we pass configuration
 	-- options to `gitsigns.nvim`. This is equivalent to the following Lua:
@@ -190,31 +190,31 @@ require("lazy").setup({
 		},
 	},
 
-  -- Keybinds to make split navigation easier.
-  --  Use CTRL+<hjkl> to switch between windows
-  --
-  --  See `:help wincmd` for a list of all window commands
-  -- vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-  -- vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-  -- vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-  -- vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
-  {
-    "christoomey/vim-tmux-navigator",
-    cmd = {
-      "TmuxNavigateLeft",
-      "TmuxNavigateDown",
-      "TmuxNavigateUp",
-      "TmuxNavigateRight",
-      "TmuxNavigatePrevious",
-    },
-    keys = {
-      { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
-      { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
-      { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
-      { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
-      { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
-    },
-  },
+	-- Keybinds to make split navigation easier.
+	--  Use CTRL+<hjkl> to switch between windows
+	--
+	--  See `:help wincmd` for a list of all window commands
+	-- vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+	-- vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+	-- vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+	-- vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+	{
+		"christoomey/vim-tmux-navigator",
+		cmd = {
+			"TmuxNavigateLeft",
+			"TmuxNavigateDown",
+			"TmuxNavigateUp",
+			"TmuxNavigateRight",
+			"TmuxNavigatePrevious",
+		},
+		keys = {
+			{ "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
+			{ "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
+			{ "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
+			{ "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
+			{ "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
+		},
+	},
 
 	-- NOTE: Plugins can also be configured to run Lua code when they are loaded.
 	--
@@ -753,7 +753,11 @@ require("lazy").setup({
 			-- Load the colorscheme.
 			-- catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
 			-- TODO: load different theme in differnt os
-			vim.cmd.colorscheme("catppuccin-latte")
+			if vim.fn.has("win32") == 1 then
+				vim.cmd.colorscheme("catppuccin-latte")
+			else
+				vim.cmd.colorscheme("catppuccin-mocha")
+			end
 
 			-- You can configure highlights by doing something like:
 			vim.cmd.hi("Comment gui=none")
@@ -809,7 +813,19 @@ require("lazy").setup({
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		opts = {
-			ensure_installed = { "bash", "c", "diff", "html", "lua", "luadoc", "markdown", "vim", "vimdoc" },
+			ensure_installed = {
+				"bash",
+				"c",
+				"diff",
+				"html",
+				"lua",
+				"luadoc",
+				"markdown",
+				"vim",
+				"vimdoc",
+				"javascript",
+				"zig",
+			},
 			-- Autoinstall languages that are not installed
 			auto_install = true,
 			highlight = {

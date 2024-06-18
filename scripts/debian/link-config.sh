@@ -11,6 +11,8 @@ ln -sf $CONFIG_DIR/shared/tmux/tmux.conf $HOME/.tmux.conf
 ln -sf $CONFIG_DIR/debian/bash/bashrc $HOME/.bashrc
 ln -sf $CONFIG_DIR/debian/misc/inputrc $HOME/.inputrc
 
+ln -sf $CONFIG_DIR/shared/nvim/init.lua $HOME/.config/nvim/init.lua
+
 # polybar
 ln -sf $CONFIG_DIR/debian/polybar/config.ini $HOME/.config/polybar/config.ini
 ln -sf $CONFIG_DIR/debian/polybar/themes/mocha.ini $HOME/.config/polybar/theme.ini
