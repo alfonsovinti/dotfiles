@@ -19,29 +19,29 @@ function dtfn_prompt () {
     if [ $# -ge 2 ] && [ -n "$2" ];
     then
         case "$2" in
-	    true) 
-		o="[Y/n]" 
-		d="y"
-		;;
-	    false) 
-		o="[y/N]"
-		d="n"
-		;;
-	esac
+        true) 
+            o="[Y/n]" 
+            d="y"
+        ;;
+        false) 
+            o="[y/N]"
+            d="n"
+        ;;
+        esac
     fi
     while true; do
         read -p "$1 $o: " yn
         case "$yn" in
             [Yy])  return 0 ;;  
             [Nn])  return 1 ;;
-	      "") 
-		    case "$d" in
-			y) return 0 ;;
-			n) return 1 ;;
-			*) echo "invalid response" ;;
-		    esac
-		      ;;
-                *)  echo "invalid response" ;;
+            "") 
+                    case "$d" in
+                        y) return 0 ;;
+                        n) return 1 ;;
+                        *) echo "invalid response" ;;
+                    esac
+                    ;;
+            *)  echo "invalid response" ;;
         esac
     done
 }
@@ -73,6 +73,7 @@ dtfn_prompt "Install DE?" false && {
     . $SCRIPTS_DIR/debian/add-de.sh
     sudo apt autoremove
     sudo cp -f $CONFIG_DIR/debian/lxdm/lxdm.conf /etc/lxdm/lxdm.conf
+    . $SCRIPTS_DIR/debian/add-kitty.sh
 }
 
 
