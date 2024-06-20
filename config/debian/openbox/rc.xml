@@ -274,6 +274,15 @@
     <keybind key="W-S-minus">
       <action name="Iconify"/>
     </keybind>
+    <keybind key="W-period">
+      <action name="Unmaximize"/>
+      <action name="MoveResizeTo">
+        <x>center</x>
+        <y>center</y>
+        <width>50%</width>
+        <height>50%</height>
+      </action>
+    </keybind>
     <keybind key="W-l">
       <action name="DirectionalCycleWindows">
         <direction>right</direction>
@@ -339,7 +348,7 @@
         <height>50%</height>
       </action>
     </keybind>
-    <keybind key="W-A-j">
+    <keybind key="W-A-l">
       <action name="Unmaximize"/>
       <action name="MoveResizeTo">
         <x>-0</x>
@@ -348,7 +357,7 @@
         <height>50%</height>
       </action>
     </keybind>
-    <keybind key="W-A-l">
+    <keybind key="W-A-j">
       <action name="Unmaximize"/>
       <action name="MoveResizeTo">
         <x>0</x>
