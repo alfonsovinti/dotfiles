@@ -5,6 +5,7 @@ mkdir -p $HOME/.config/kitty
 mkdir -p $HOME/.config/polybar
 mkdir -p $HOME/.config/openbox
 mkdir -p $HOME/.config/conky
+mkdir -p $HOME/.config/picom
 
 ln -sf $CONFIG_DIR/shared/starship/starship.toml $HOME/.config/starship.toml
 ln -sf $CONFIG_DIR/shared/tmux/tmux.conf $HOME/.tmux.conf
@@ -26,5 +27,5 @@ ln -sf $CONFIG_DIR/debian/openbox/menu.systemd.xml $HOME/.config/openbox/menu.sy
 ln -sf $CONFIG_DIR/debian/openbox/environment $HOME/.config/openbox/environment
 ln -sf $CONFIG_DIR/debian/openbox/autostart $HOME/.config/openbox/autostart
 ln -sf $CONFIG_DIR/debian/conky/mocha.conf $HOME/.config/conky/conky.conf
+ln -sf $CONFIG_DIR/debian/picom/picom.conf $HOME/.config/picom/picom.conf
 sudo ln -sf $RESOURCES_DIR/debian/bin/ob-exit /usr/bin
-

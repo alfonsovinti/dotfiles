@@ -25,7 +25,7 @@ fi
 nitrogen --restore &
 
 # Start picom
-#picom --config $HOME/.config/picom/picom.conf &
+picom --config $HOME/.config/picom/picom.conf &
 
 # Start bars
 #tint2 &
