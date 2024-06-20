@@ -35,3 +35,4 @@
     - https://packages.debian.org/bookworm/xorg
     - https://packages.debian.org/bookworm/lxde
     - https://packages.debian.org/bookworm/lxde-core
+    - https://github.com/MarioCarrion/videos/blob/269956e913b76e6bb4ed790e4b5d25255cb1db4f/2023/01/nvim/lua/plugins/nvim-tree.lua
