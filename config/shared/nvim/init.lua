@@ -245,6 +245,9 @@ require("lazy").setup({
     dependencies = {
       "nvim-tree/nvim-web-devicons",
     },
+    keys = {
+      { "-", ":NvimTreeToggle<CR>" },
+    },
     config = function()
       require("nvim-tree").setup({
         disable_netrw = true,
