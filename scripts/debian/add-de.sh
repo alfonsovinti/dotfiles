@@ -24,8 +24,7 @@ sudo apt install -y build-essential
 xdg-user-dirs-update
 
 # Add display manager
-sudo apt install -y sddm
-#sudo systemctl enable sddm
+sudo apt install -y --no-install-recommends sddm qml-module-qtquick-layouts qml-module-qtquick-controls2 libqt6svg6
 
 # Network files tools and system events
 sudo apt install -y dialog mtools dosfstools avahi-daemon acpi acpid gvfs-backends xfce4-power-manager
