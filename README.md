@@ -6,6 +6,7 @@
  - https://github.com/khaneliman/dotfiles/blob/main/scripts/os/windows.ps1
  - http://dotfiles.github.io/
  - https://github.com/owl4ce/dotfiles/tree/ng
+ - https://github.com/deinsoftware
 
 ## Requirements 
   - ToDo

@@ -71,12 +71,11 @@ dtfn_prompt "Install/update distrobox?" false && {
 # Install DE
 dtfn_prompt "Install DE?" false && {
     . $SCRIPTS_DIR/debian/add-de.sh
-    sudo apt autoremove
     sudo cp -f $CONFIG_DIR/debian/lxdm/lxdm.conf /etc/lxdm/lxdm.conf
     . $SCRIPTS_DIR/debian/add-kitty.sh
 }
 
-
+# Install theme
 dtfn_prompt "Install theme?" false && {
     mkdir -p $HOME/.icons
     cd $HOME/.icons
@@ -104,10 +103,14 @@ dtfn_prompt "Install starship?" false && {
     curl -sS https://starship.rs/install.sh | sh
 }
 
+# Run link script
 . $SCRIPTS_DIR/debian/link-config.sh
 
 # Clean up
+dtfn_prompt "Clean up?" false && {
+    # TODO remove lightdm
+    apt purge lightdm light-locker lxrandr 
+    sudo apt autoremove
+}
+
 rm -Rf $TMP_DIR
-
-# TODO https://github.com/deinsoftware
-
