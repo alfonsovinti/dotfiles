@@ -108,8 +108,6 @@ dtfn_prompt "Install starship?" false && {
 
 # Clean up
 dtfn_prompt "Clean up?" false && {
-    # TODO remove lightdm
-    apt purge lightdm light-locker lxrandr lxdm
     sudo apt autoremove
 }
 
