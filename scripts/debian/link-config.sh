@@ -18,7 +18,7 @@ mkdir -p $HOME/.config/bat
 mkdir -p $HOME/.config/bat/themes
 ln -sf $CONFIG_DIR/debian/bat/config $HOME/.config/bat/config
 ln -sf $CONFIG_DIR/debian/bat/themes/*.tmTheme $HOME/.config/bat/themes/
-bat cache --build
+batcat cache --build
 
 # openbox
 mkdir -p $HOME/.config/openbox
