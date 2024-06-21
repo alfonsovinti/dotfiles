@@ -71,7 +71,7 @@ dtfn_prompt "Install/update distrobox?" false && {
 # Install DE
 dtfn_prompt "Install DE?" false && {
     . $SCRIPTS_DIR/debian/add-de.sh
-    sudo cp -f $CONFIG_DIR/debian/lxdm/lxdm.conf /etc/lxdm/lxdm.conf
+    #sudo cp -f $CONFIG_DIR/debian/lxdm/lxdm.conf /etc/lxdm/lxdm.conf
     . $SCRIPTS_DIR/debian/add-kitty.sh
 }
 
@@ -109,7 +109,7 @@ dtfn_prompt "Install starship?" false && {
 # Clean up
 dtfn_prompt "Clean up?" false && {
     # TODO remove lightdm
-    apt purge lightdm light-locker lxrandr 
+    apt purge lightdm light-locker lxrandr lxdm
     sudo apt autoremove
 }
 

@@ -24,8 +24,8 @@ sudo apt install -y build-essential
 xdg-user-dirs-update
 
 # Add display manager
-sudo apt install -y lxdm
-sudo systemctl enable lxdm
+sudo apt install -y sddm
+#sudo systemctl enable sddm
 
 # Network files tools and system events
 sudo apt install -y dialog mtools dosfstools avahi-daemon acpi acpid gvfs-backends xfce4-power-manager
