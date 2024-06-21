@@ -41,7 +41,7 @@ sudo apt install -y pcmanfm tumbler
 sudo apt install -y openbox menu arandr lxappearance lxappearance-obconf lxinput lxterminal
 
 # Sound
-sudo apt install -y pipewire pavucontrol pamixer
+sudo apt install -y pipewire-audio 
 
 # File archiver
 sudo apt install -y engrampa p7zip-full p7zip-rar rar unrar unzip unace bzip2

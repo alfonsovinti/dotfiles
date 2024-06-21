@@ -15,11 +15,6 @@
 # Start LX PolicyKit
 lxpolkit &
 
-#Screen restpre
-# if [ -f "$HOME/.config/autostart/lxrandr-autostart.desktop" ]; then
-#     sed -n 's/^Exec=//p' $HOME/.config/autostart/lxrandr-autostart.desktop | sh
-# fi
-
 # Wallpaper
 nitrogen --restore &
 
@@ -31,17 +26,23 @@ picom --config $HOME/.config/picom/picom.conf &
 polybar -q &
 
 # Start nm-applet
-#nm-applet &
+nm-applet &
 
+# Volume keys daemon
+#mate-volume-control-status-icon &
 #audacious &
+
+# Enable power management
+# mate-power-manager &
+xfce4-power-manager &
 
 #blueman-applet &
 
-dunst &
-xfce4-power-manager &
-
 # Start xscreensaver
 xscreensaver -no-splash &
+
+# Notification daemon
+dunst &
 
 ## Start Clipboard manager
 (sleep 3s && parcellite) &
