@@ -153,10 +153,10 @@
      Many programs reserve space automatically, but you can use this in other
      cases. -->
   <margins>
-    <top>1</top>
-    <bottom>1</bottom>
-    <left>1</left>
-    <right>1</right>
+    <top>0</top>
+    <bottom>0</bottom>
+    <left>0</left>
+    <right>0</right>
   </margins>
   <dock>
     <position>Top</position>
@@ -217,7 +217,7 @@
       <action name="ToggleShowDesktop"/>
     </keybind>
     <!-- Keybindings for windows -->
-    <keybind key="w-q">
+    <keybind key="W-q">
       <action name="Close"/>
     </keybind>
     <keybind key="A-Escape">
@@ -383,6 +383,20 @@
           <name>Konqueror</name>
         </startupnotify>
         <command>kfmclient openProfile filemanagement</command>
+      </action>
+    </keybind>
+    <keybind key="W-b">
+      <action name="Execute"><execute>x-www-browser</execute></action>
+    </keybind>
+    <!-- Launch rofi -->
+    <keybind key="W-space">
+      <action name="Execute">
+        <command>rofi -show </command>
+      </action>
+    </keybind>
+    <keybind key="W-Tab">
+      <action name="Execute">
+        <command>rofi -show window</command>
       </action>
     </keybind>
     <!-- Launch scrot when Print is pressed -->
