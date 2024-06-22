@@ -51,8 +51,10 @@ sudo apt install -y \
     picom dunst libnotify-bin libnotify-dev feh nitrogen rofi polybar scrot \
     conky parcellite numlockx galculator galternatives papirus-icon-theme ttf-mscorefonts-installer \
     light
-
 # conky-manager (to make)
+
+# Add app
+sudo apt install -y firefox-esr gimp
 
 # ---------------
 # ranger
