@@ -16,6 +16,7 @@
 lxpolkit &
 
 # Wallpaper
+xsetroot -solid "#303446"
 nitrogen --restore &
 
 # Start picom
