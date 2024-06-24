@@ -13,9 +13,6 @@
 # xorg display server installation
 sudo apt install -y xorg xbacklight xbindkeys xvkbd xinput xscreensaver
 
-# Add build-essential
-sudo apt install -y build-essential
-
 # Microcode for Intel/AMD 
 #sudo apt install -y amd64-microcode
 #sudo apt install -y intel-microcode 
@@ -44,7 +41,7 @@ sudo apt install -y openbox menu arandr lxappearance lxappearance-obconf lxinput
 sudo apt install -y pipewire-audio 
 
 # File archiver
-sudo apt install -y engrampa p7zip-full p7zip-rar rar unrar unzip unace bzip2
+sudo apt install -y engrampa p7zip-full p7zip-rar rar unrar unace bzip2
 
 # Add others
 sudo apt install -y \
