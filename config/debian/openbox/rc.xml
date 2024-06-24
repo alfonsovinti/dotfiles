@@ -386,12 +386,14 @@
       </action>
     </keybind>
     <keybind key="W-b">
-      <action name="Execute"><execute>x-www-browser</execute></action>
+      <action name="Execute">
+        <execute>x-www-browser</execute>
+      </action>
     </keybind>
     <!-- Launch rofi -->
     <keybind key="W-space">
       <action name="Execute">
-        <command>rofi -show </command>
+        <command>rofi -show run</command>
       </action>
     </keybind>
     <keybind key="W-Tab">
