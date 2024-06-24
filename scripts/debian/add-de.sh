@@ -11,7 +11,7 @@
 # add-de.sh
 
 # xorg display server installation
-sudo apt install -y xorg xbacklight xbindkeys xvkbd xinput xscreensaver
+sudo apt install -y xorg xbacklight xbindkeys xvkbd xinput xscreensaver desktop-base
 
 # Microcode for Intel/AMD 
 #sudo apt install -y amd64-microcode
