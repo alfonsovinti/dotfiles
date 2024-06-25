@@ -37,6 +37,10 @@ sudo apt install -y pcmanfm tumbler
 # Openbox packages
 sudo apt install -y openbox menu arandr lxappearance lxappearance-obconf lxinput lxterminal
 
+# TODO: i3 packages
+#apt install -y --no-install-recommends i3
+#apt install -y  i3lock i3lock-fancy
+
 # Sound
 sudo apt install -y pipewire-audio 
 
