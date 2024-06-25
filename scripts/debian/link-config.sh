@@ -7,6 +7,10 @@ ln -sf $CONFIG_DIR/debian/misc/inputrc $HOME/.inputrc
 ln -sf $CONFIG_DIR/debian/misc/user-dirs.dirs $HOME/.config/user-dirs.dirs
 ln -sf $CONFIG_DIR/debian/xorg/Xresources $HOME/.Xresources
 
+# dunst
+mkdir -p $HOME/.config/dunst
+ln -sf $CONFIG_DIR/debian/dunst/dunstrc $HOME/.config/dunst/dunstrc
+
 # neovim
 mkdir -p $HOME/.config/nvim
 ln -sf $CONFIG_DIR/shared/nvim/init.lua $HOME/.config/nvim/init.lua
