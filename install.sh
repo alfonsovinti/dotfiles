@@ -108,7 +108,7 @@ dtfn_prompt "Install starship?" false && {
 
 # Clean up
 dtfn_prompt "Clean up?" false && {
-    apt purge lightdm light-locker lxrandr lxdm
+    apt purge lightdm light-locker lxrandr lxdm xfce4-power-manager xfce4-power-manager-plugins default-logind
     sudo apt autoremove
 }
 

@@ -34,8 +34,7 @@ nm-applet &
 #audacious &
 
 # Enable power management
-# mate-power-manager &
-xfce4-power-manager &
+mate-power-manager &
 
 #blueman-applet &
 

@@ -24,7 +24,7 @@ xdg-user-dirs-update
 sudo apt install -y --no-install-recommends sddm qml-module-qtquick-layouts qml-module-qtquick-controls2 libqt6svg6
 
 # Network files tools and system events
-sudo apt install -y dialog mtools dosfstools avahi-daemon acpi acpid gvfs-backends xfce4-power-manager
+sudo apt install -y dialog mtools dosfstools avahi-daemon acpi acpid gvfs-backends mate-power-manager
 sudo systemctl enable avahi-daemon
 sudo systemctl enable acpid
 
@@ -46,39 +46,16 @@ sudo apt install -y engrampa p7zip-full p7zip-rar rar unrar unace bzip2
 # Add others
 sudo apt install -y \
     picom dunst libnotify-bin libnotify-dev feh nitrogen rofi polybar scrot \
-    conky parcellite numlockx galculator galternatives papirus-icon-theme ttf-mscorefonts-installer \
-    light
-# conky-manager (to make)
+    conky parcellite numlockx galculator galternatives papirus-icon-theme \
+    ttf-mscorefonts-installer \
+    light synaptic
 
 # Add app
-sudo apt install -y firefox-esr gimp
-
-# ---------------
-# ranger
-# cheese
-# galculator
-# geany
-# gimp
-# grub-customizer
-# htop keepassx
-# libreoffice
-# light-locker
-# lxappearance
-# mintstick
-# moc
-# mousepad
-# neofetch
-# nnn
-# obconf
-# powertop
+sudo apt install -y firefox-esr gimp inkscape
+# conky-manager 
 # redshift
-# sakura
-# sxiv
 # thefuck
 # thermald
 # thunderbird
-# tint2
 # tlp
-# touchpad-indicator
 # zenity
-# zim
