@@ -50,7 +50,7 @@ function dtfn_prompt () {
 mkdir -p $TMP_DIR
 
 # Update system
-dtfn_prompt "Upadate system?" false && sudo apt update && sudo apt upgrade
+sudo apt update && sudo apt upgrade
 
 # Install pkg
 dtfn_prompt "Install required?" true && {
@@ -92,7 +92,7 @@ dtfn_prompt "Install theme?" false && {
 }
 
 # Install fonts
-dtfn_prompt "Install fonts?" true && {
+dtfn_prompt "Install fonts?" false && {
     mkdir -p $HOME/.local/share/fonts
     cp -rf $ASSETS_DIR/shared/fonts/*.ttf $HOME/.local/share/fonts
     fc-cache -f -v
@@ -108,7 +108,7 @@ dtfn_prompt "Install starship?" false && {
 
 # Clean up
 dtfn_prompt "Clean up?" false && {
-    apt purge lightdm light-locker lxrandr lxdm xfce4-power-manager xfce4-power-manager-plugins default-logind
+    sudo apt purge lightdm light-locker lxrandr lxdm xfce4-power-manager xfce4-power-manager-plugins default-logind
     sudo apt autoremove
 }
 

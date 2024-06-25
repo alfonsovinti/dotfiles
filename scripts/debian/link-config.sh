@@ -4,7 +4,6 @@ ln -sf $CONFIG_DIR/shared/starship/starship.toml $HOME/.config/starship.toml
 ln -sf $CONFIG_DIR/shared/tmux/tmux.conf $HOME/.tmux.conf
 ln -sf $CONFIG_DIR/debian/bash/bashrc $HOME/.bashrc
 ln -sf $CONFIG_DIR/debian/misc/inputrc $HOME/.inputrc
-ln -sf $CONFIG_DIR/debian/misc/user-dirs.dirs $HOME/.config/user-dirs.dirs
 ln -sf $CONFIG_DIR/debian/xorg/Xresources $HOME/.Xresources
 
 # dunst

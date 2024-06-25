@@ -18,6 +18,13 @@ sudo apt install -y xorg xbacklight xbindkeys xvkbd xinput xscreensaver desktop-
 #sudo apt install -y intel-microcode 
 
 # Create folders in user directory
+ln -sf $CONFIG_DIR/debian/misc/user-dirs.dirs $HOME/.config/user-dirs.dirs
+mkdir -p $HOME/downloads
+mkdir -p $HOME/documents
+mkdir -p $HOME/music
+mkdir -p $HOME/images
+mkdir -p $HOME/videos
+mkdir -p $HOME/templates
 xdg-user-dirs-update
 
 # Add display manager
