@@ -54,7 +54,7 @@ sudo apt update && sudo apt upgrade
 
 # Install pkg
 dtfn_prompt "Install required?" true && {
-    sudo apt install podman curl wget htop iftop iotop neofetch exa bat tmux man-db manpages manpages-it bash-completion fonts-recommended build-essential unzip 
+    sudo apt install podman curl wget htop iftop iotop neofetch exa bat tmux man-db manpages manpages-it bash-completion fonts-recommended build-essential unzip xsel
     curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
     if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
         git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
