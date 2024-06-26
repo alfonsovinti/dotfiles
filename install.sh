@@ -59,6 +59,9 @@ dtfn_prompt "Install required?" true && {
     if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
         git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
     fi
+    if [ ! -d "$HOME/.nvm" ]; then
+        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+    fi
     . $SCRIPTS_DIR/debian/add-neovim.sh
 }
 
