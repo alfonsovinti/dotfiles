@@ -184,6 +184,9 @@ require("lazy").setup({
   { "numToStr/Comment.nvim", opts = {} },
 
   --
+  { "NvChad/nvim-colorizer.lua", opts = {} },
+
+  --
   {
     "preservim/vimux",
     keys = {
