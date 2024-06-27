@@ -7,11 +7,12 @@ format = """
 [](blue)\
 $directory\
 [ ](blue)\
-[](rosewater)\
+[](teal)\
 $git_branch\
 $git_status\
-[](rosewater)\
+[](teal)\
 $fill\
+$lua\
 $all\
 $character\
 """
@@ -33,15 +34,53 @@ style = "bold bg:blue fg:mantle"
 format = "[$path]($style)"
 
 [git_branch]
-style = "bold bg:rosewater fg:mantle"
+style = "bold bg:teal fg:mantle"
 format = '[[$symbol$branch ]($style)]($style)'
 
 [git_status]
 deleted = 'x'
-style = "bold bg:rosewater fg:red"
+style = "bold bg:teal fg:#d20f39"
 format = '[[($all_status$ahead_behind)]($style)]($style)'
 
+[lua]
+symbol = ""
+style = "bold bg:surface0 fg:text"
+format = "[](surface0)[via [$symbol( $version)](bg:surface0 fg:yellow)]($style)[](surface0)"
+
+[cmd_duration]
+symbol = "󱎫"
+style = "bold bg:surface0 fg:text"
+format = "[](surface0)[󱎫 [$duration](bold bg:surface0 fg:peach)]($style)[](surface0)"
+
 # palette tables should be last in the config ⚓️
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"
+
 [palettes.catppuccin_macchiato]
 rosewater = "#f4dbd6"
 flamingo = "#f0c6c6"
@@ -125,31 +164,3 @@ surface0 = "#ccd0da"
 base = "#eff1f5"
 mantle = "#e6e9ef"
 crust = "#dce0e8"
-
-[palettes.catppuccin_mocha]
-rosewater = "#f5e0dc"
-flamingo = "#f2cdcd"
-pink = "#f5c2e7"
-mauve = "#cba6f7"
-red = "#f38ba8"
-maroon = "#eba0ac"
-peach = "#fab387"
-yellow = "#f9e2af"
-green = "#a6e3a1"
-teal = "#94e2d5"
-sky = "#89dceb"
-sapphire = "#74c7ec"
-blue = "#89b4fa"
-lavender = "#b4befe"
-text = "#cdd6f4"
-subtext1 = "#bac2de"
-subtext0 = "#a6adc8"
-overlay2 = "#9399b2"
-overlay1 = "#7f849c"
-overlay0 = "#6c7086"
-surface2 = "#585b70"
-surface1 = "#45475a"
-surface0 = "#313244"
-base = "#1e1e2e"
-mantle = "#181825"
-crust = "#11111b"
