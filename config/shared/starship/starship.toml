@@ -1,30 +1,45 @@
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
 
-# Sets user-defined palette
-palette = "catppuccin_latte"
+# Use custom format
+# "█"
+format = """
+[](blue)\
+$directory\
+[ ](blue)\
+[](rosewater)\
+$git_branch\
+$git_status\
+[](rosewater)\
+$fill\
+$all\
+$character\
+"""
 
-# Replace the '❯' 
+# Sets user-defined palette
+palette = "catppuccin_mocha"
+
+[fill]
+symbol = ' '
+
 [character]
 success_symbol = "[[󱚤](green) ❯](mauve)"
 error_symbol = "[[󱚢](red) ❯](mauve)"
-vimcmd_symbol = "[[󱚦](green) ❮](mauve)"
+vimcmd_symbol = "[[󱚦](yellow) ❮](mauve)"
 
 [directory]
 truncation_length = 4
-style = "bold lavender"
+style = "bold bg:blue fg:mantle"
+format = "[$path]($style)"
+
+[git_branch]
+style = "bold bg:rosewater fg:mantle"
+format = '[[$symbol$branch ]($style)]($style)'
 
 [git_status]
 deleted = 'x'
-#deleted = ''
-#modified = ''
-#untracked = ''
-#ahead = '⇡'
-#behind = '⇣'
-#diverged = '⇕'
-#conflicted = '='
-#renamed = ''
-#staged = '+'
+style = "bold bg:rosewater fg:red"
+format = '[[($all_status$ahead_behind)]($style)]($style)'
 
 # palette tables should be last in the config ⚓️
 [palettes.catppuccin_macchiato]
