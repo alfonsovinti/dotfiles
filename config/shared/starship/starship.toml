@@ -48,7 +48,6 @@ style = "bold bg:surface0 fg:text"
 format = "[](surface0)[via [$symbol( $version)](bg:surface0 fg:yellow)]($style)[](surface0)"
 
 [cmd_duration]
-symbol = "󱎫"
 style = "bold bg:surface0 fg:text"
 format = "[](surface0)[󱎫 [$duration](bold bg:surface0 fg:peach)]($style)[](surface0)"
 
