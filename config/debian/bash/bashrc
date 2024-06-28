@@ -193,11 +193,6 @@ alias tobash="sudo chsh $USER -s /bin/bash && echo \"Need log out.\""
 alias tozsh="sudo chsh $USER -s /bin/zsh && echo \"Need log out.\""
 alias tofish="sudo chsh $USER -s /bin/fish && echo \"Need log out.\""
 
-# Load loca aliases from ~/.bash_aliases.
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -214,3 +209,8 @@ eval "$(starship init bash)"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Load local bashrc from ~/.bashrc_local.
+if [ -f "$HOME/.bashrc_local" ]; then
+    . "$HOME/.bashrc_local"
+fi
