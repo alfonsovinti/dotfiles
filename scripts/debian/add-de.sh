@@ -42,7 +42,7 @@ sudo apt install -y lxpolkit network-manager network-manager-gnome
 sudo apt install -y pcmanfm tumbler
 
 # Awesome packages
-sudo apt install -y awesome awesome-extra awesome-doc
+sudo apt install -y awesome awesome-extra awesome-doc arandr lxappearance lxinput lxterminal
 
 # Sound
 sudo apt install -y pipewire-audio 
