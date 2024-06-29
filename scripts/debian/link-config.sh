@@ -25,19 +25,16 @@ ln -sf $CONFIG_DIR/debian/bat/config $HOME/.config/bat/config
 ln -sf $CONFIG_DIR/debian/bat/themes/*.tmTheme $HOME/.config/bat/themes/
 batcat cache --build
 
-# openbox
-mkdir -p $HOME/.config/openbox
-ln -sf $CONFIG_DIR/debian/openbox/rc.xml $HOME/.config/openbox/rc.xml
-ln -sf $CONFIG_DIR/debian/openbox/menu.xml $HOME/.config/openbox/menu.xml
-ln -sf $CONFIG_DIR/debian/openbox/menu.systemd.xml $HOME/.config/openbox/menu.systemd.xml
-ln -sf $CONFIG_DIR/debian/openbox/environment $HOME/.config/openbox/environment
-ln -sf $CONFIG_DIR/debian/openbox/autostart $HOME/.config/openbox/autostart
+# awesome
+mkdir -p $HOME/.config/awesome
+ln -sf $CONFIG_DIR/debian/awesome/rc.lua $HOME/.config/awesome/rc.lua
+ln -sf $CONFIG_DIR/debian/awesome/autorun.sh $HOME/.config/awesome/autorun.sh
 #sudo ln -sf $RESOURCES_DIR/debian/bin/ob-exit /usr/bin
 
 # polybar
-mkdir -p $HOME/.config/polybar
-ln -sf $CONFIG_DIR/debian/polybar/config.ini $HOME/.config/polybar/config.ini
-ln -sf $CONFIG_DIR/debian/polybar/themes/mocha.ini $HOME/.config/polybar/theme.ini
+# mkdir -p $HOME/.config/polybar
+# ln -sf $CONFIG_DIR/debian/polybar/config.ini $HOME/.config/polybar/config.ini
+# ln -sf $CONFIG_DIR/debian/polybar/themes/mocha.ini $HOME/.config/polybar/theme.ini
 
 # conky
 mkdir -p $HOME/.config/conky

@@ -41,12 +41,8 @@ sudo apt install -y lxpolkit network-manager network-manager-gnome
 # File explorer
 sudo apt install -y pcmanfm tumbler
 
-# Openbox packages
-sudo apt install -y openbox menu arandr lxappearance lxappearance-obconf lxinput lxterminal
-
-# TODO: i3 packages
-#apt install -y --no-install-recommends i3
-#apt install -y  i3lock i3lock-fancy
+# Awesome packages
+sudo apt install -y awesome awesome-extra awesome-doc
 
 # Sound
 sudo apt install -y pipewire-audio 
@@ -56,7 +52,7 @@ sudo apt install -y engrampa p7zip-full p7zip-rar rar unrar unace bzip2
 
 # Add others
 sudo apt install -y \
-    picom dunst libnotify-bin libnotify-dev feh nitrogen rofi polybar scrot \
+    picom dunst libnotify-bin libnotify-dev feh nitrogen rofi scrot \
     conky parcellite numlockx galculator galternatives papirus-icon-theme \
     ttf-mscorefonts-installer \
     light synaptic

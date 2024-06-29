@@ -1,15 +1,5 @@
-## Openbox autostart.sh
+## autorun.sh
 ## ====================
-## When you login to your Openbox session, this autostart script will be
-## executed to set-up your environment and launch any applications you
-## want to run at startup.
-##
-## Note*: some programs, such as 'nm-applet' are run via XDG autostart.
-## Run '/usr/lib/openbox/openbox-xdg-autostart --list' to list any
-## XDG autostarted programs.
-##
-## More information about this can be found at:
-## http://openbox.org/wiki/Help:Autostart
 ##
 
 # Start LX PolicyKit
@@ -23,8 +13,7 @@ nitrogen --restore &
 picom --config $HOME/.config/picom/picom.conf &
 
 # Start bars
-#tint2 &
-polybar -q &
+#polybar -q &
 
 # Start nm-applet
 nm-applet &
