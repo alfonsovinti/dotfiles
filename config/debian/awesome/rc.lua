@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 -- If LuaRocks is installed, make sure that packages installed through it are
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
@@ -55,22 +56,27 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
+-- local chosen_theme = "catppuccin_mocha"
+-- local theme_path =
+--   string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme)
+-- beautiful.init(theme_path)
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
 -- autorun.sh
-awful.spawn.with_shell("~/.config/awesome/autorun.sh")
+local autorun_path = string.format("%s/.config/awesome/autorun.sh", os.getenv("HOME"))
+awful.spawn.with_shell(autorun_path)
 
 -- This is used later as the default terminal and editor to run.
-terminal = "kitty" -- "x-terminal-emulator"
-editor = os.getenv("EDITOR") or "editor"
-editor_cmd = terminal .. " -e " .. editor
+local terminal = "kitty" -- "x-terminal-emulator"
+local editor = os.getenv("EDITOR") or "editor"
+local editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
 -- If you do not like this or do not have such a key,
 -- I suggest you to remap Mod4 to another key using xmodmap or other tools.
 -- However, you can use another modifier like Mod1, but it may interact with others.
-modkey = "Mod4"
+local modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
@@ -95,7 +101,7 @@ awful.layout.layouts = {
 
 -- {{{ Menu
 -- Create a launcher widget and a main menu
-myawesomemenu = {
+local myawesomemenu = {
   {
     "hotkeys",
     function()
@@ -116,6 +122,7 @@ myawesomemenu = {
 local menu_awesome = { "awesome", myawesomemenu, beautiful.awesome_icon }
 local menu_terminal = { "open terminal", terminal }
 
+local mymainmenu
 if has_fdo then
   mymainmenu = freedesktop.menu.build({
     before = { menu_awesome },
@@ -131,18 +138,18 @@ else
   })
 end
 
-mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon, menu = mymainmenu })
+local mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon, menu = mymainmenu })
 
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 -- }}}
 
 -- Keyboard map indicator and switcher
-mykeyboardlayout = awful.widget.keyboardlayout()
+local mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock()
+local mytextclock = wibox.widget.textclock()
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -277,7 +284,7 @@ root.buttons(gears.table.join(
 -- }}}
 
 -- {{{ Key bindings
-globalkeys = gears.table.join(
+local globalkeys = gears.table.join(
   awful.key(
     { modkey },
     "s",
@@ -338,6 +345,9 @@ globalkeys = gears.table.join(
   awful.key({ modkey }, "Return", function()
     awful.spawn(terminal)
   end, { description = "open a terminal", group = "launcher" }),
+  awful.key({ modkey }, "b", function()
+    awful.spawn("firefox")
+  end, { description = "open a browser", group = "launcher" }),
   awful.key(
     { modkey, "Control" },
     "r",
@@ -488,7 +498,7 @@ for i = 1, 9 do
   )
 end
 
-clientbuttons = gears.table.join(
+local clientbuttons = gears.table.join(
   awful.button({}, 1, function(c)
     c:emit_signal("request::activate", "mouse_click", { raise = true })
   end),
@@ -636,4 +646,3 @@ client.connect_signal("unfocus", function(c)
   c.border_color = beautiful.border_normal
 end)
 -- }}}
-
