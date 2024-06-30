@@ -6,7 +6,6 @@
 lxpolkit &
 
 # Bg and Wallpaper
-xsetroot -solid "#303446" &
 nitrogen --restore &
 
 # Start picom
@@ -37,7 +36,7 @@ dunst &
 (sleep 3s && parcellite) &
 
 # Set keyboard settings - 250 ms delay and 25 cps (characters per second) repeat rate.
-# Adjust the values according to your preferances.
+# Adjust the values according to your preferences.
 #xset r rate 250 25 &
 
 # Turn on/off system beep
@@ -45,6 +44,3 @@ xset b off &
 
 ## Run the conky
 conky -q &
-
-# Hacks for notifyd since it switched to systemd
-#/usr/lib/*/xfce4/notifyd/xfce4-notifyd &
